@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Venues
+    </ion-title>
+    <button (click)="openInfo($event)" ion-button end small clear>
+      <ion-icon color="primary" name="information-circle" style="zoom:1.8;"></ion-icon></button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    placeholder="Search venue..."
+    type="text"
+    [(showCancelButton)]="shouldShowCancel"
+    (ionInput)="getVenues($event)">
+    </ion-searchbar>
+
+    <ion-list><button (click)="goToPage()" ion-item *ngFor="let venue of venues">
+      <ion-thumbnail item-start>
+        <img [src]="'/assets/imgs/' + venue.id + '.jpg'">
+      </ion-thumbnail>
+     {{ venue.name }}
+    </button></ion-list>
+</ion-content>

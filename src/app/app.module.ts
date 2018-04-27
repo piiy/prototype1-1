@@ -2,21 +2,27 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { VenuePage } from '../pages/venue/venue';
+import { GlobenPage } from '../pages/globen/globen';
+import { MapGlobenT } from '../pages/mapGlobenT/mapGlobenT';
+import { VenueInfo } from '../pages/venueInfo/venueInfo';
+import { Info2Page } from '../pages/info2/info2';
 
 @NgModule({
   declarations: [
     MyApp,
+    VenuePage,
     AboutPage,
-    ContactPage,
     HomePage,
+    MapGlobenT,
+    GlobenPage,
+    VenueInfo,
+    Info2Page,
     TabsPage
   ],
   imports: [
@@ -27,7 +33,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    VenuePage,
+    GlobenPage,
+    MapGlobenT,
+    Info2Page,
+    VenueInfo,
     HomePage,
     TabsPage
   ],
