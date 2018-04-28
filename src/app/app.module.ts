@@ -12,6 +12,10 @@ import { GlobenPage } from '../pages/globen/globen';
 import { MapGlobenT } from '../pages/mapGlobenT/mapGlobenT';
 import { VenueInfo } from '../pages/venueInfo/venueInfo';
 import { Info2Page } from '../pages/info2/info2';
+import { MapBlasut } from '../pages/mapBlasut/mapBlasut';
+import { MapGullmarsplan } from '../pages/mapGullmarsplan/mapGullmarsplan';
+import { MapSkarmarbrink } from '../pages/mapSkarmarbrink/mapSkarmarbrink';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +26,9 @@ import { Info2Page } from '../pages/info2/info2';
     MapGlobenT,
     GlobenPage,
     VenueInfo,
+    MapBlasut,
+    MapSkarmarbrink,
+    MapGullmarsplan,
     Info2Page,
     TabsPage
   ],
@@ -36,6 +43,9 @@ import { Info2Page } from '../pages/info2/info2';
     VenuePage,
     GlobenPage,
     MapGlobenT,
+    MapBlasut,
+    MapGullmarsplan,
+    MapSkarmarbrink,
     Info2Page,
     VenueInfo,
     HomePage,

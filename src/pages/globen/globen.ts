@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-/* import { GlobenTunnelbanaPage } from '../globen-tunnelbana/globen-tunnelbana';
-import { GullmarsplanPage } from '../gullmarsplan/gullmarsplan';
-import { BlSutPage } from '../bl-sut/bl-sut';
-import { SkRmarbrinkPage } from '../sk-rmarbrink/sk-rmarbrink';*/
+import { MapGullmarsplan } from '../mapGullmarsplan/mapGullmarsplan';
+import { MapBlasut } from '../mapBlasut/mapBlasut';
+import { MapSkarmarbrink } from '../mapSkarmarbrink/mapSkarmarbrink';
 import { Info2Page } from '../info2/info2';
 import { MapGlobenT } from '../mapGlobenT/mapGlobenT';
 
@@ -17,20 +16,14 @@ export class GlobenPage {
   constructor(public navCtrl: NavController) {
   }
   goToGlobenTunnelbana(params){
-
     this.navCtrl.push(MapGlobenT);
-  }/*goToGullmarsplan(params){
-    if (!params) params = {};
-    this.navCtrl.push(GullmarsplanPage);
-  }goToBlSut(params){
-    if (!params) params = {};
-    this.navCtrl.push(BlSutPage);
-  }goToSkRmarbrink(params){
-    if (!params) params = {};
-    this.navCtrl.push(SkRmarbrinkPage);
-  }*/
-  goToInfo2(params){
-    if (!params) params = {};
+  }goToGullmarsplan(params){
+    this.navCtrl.push(MapGullmarsplan);
+  }goToBlasut(params){
+    this.navCtrl.push(MapBlasut);
+  }goToSkarmarbrink(params){
+    this.navCtrl.push(MapSkarmarbrink);
+  }goToInfo2(params){
     this.navCtrl.push(Info2Page);
   }
 
