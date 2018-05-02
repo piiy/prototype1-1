@@ -10,3 +10,4 @@ export class HovetPage {
   // should be each tab's root Page
   constructor(public navCtrl: NavController) {
   }
+}
