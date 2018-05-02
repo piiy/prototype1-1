@@ -15,7 +15,7 @@ import { Info2Page } from '../pages/info2/info2';
 import { MapBlasut } from '../pages/mapBlasut/mapBlasut';
 import { MapGullmarsplan } from '../pages/mapGullmarsplan/mapGullmarsplan';
 import { MapSkarmarbrink } from '../pages/mapSkarmarbrink/mapSkarmarbrink';
-
+import { TravelInfo } from '../pages/travelInfo/travelInfo';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { MapSkarmarbrink } from '../pages/mapSkarmarbrink/mapSkarmarbrink';
     MapSkarmarbrink,
     MapGullmarsplan,
     Info2Page,
-    TabsPage
+    TabsPage,
+    TravelInfo
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,8 @@ import { MapSkarmarbrink } from '../pages/mapSkarmarbrink/mapSkarmarbrink';
     Info2Page,
     VenueInfo,
     HomePage,
-    TabsPage
+    TabsPage,
+    TravelInfo
   ],
   providers: [
     StatusBar,

@@ -1,16 +1,22 @@
   <ion-header>
       <ion-navbar color="dark">
         <ion-title>
-         Event
+               
         </ion-title>
+          <ion-buttons end>
+            <button (click)="openInfo($event)" ion-button large clear>
+              <ion-icon name="information-circle" style="zoom:1.8;">
+              </ion-icon>
+            </button>
+          </ion-buttons>
       </ion-navbar>
  </ion-header>
   <ion-content padding id="page5">
   <div class="spacer" style="width:300px;height:24px;" id="globen-spacer9"></div>
-<button id="globen-button3" ion-button color="dark" block small icon-right on-click="goToInfo2()">
+<!--<button id="globen-button3" ion-button color="white" block small icon-right on-click="goToInfo2()">
     Press me for more info!
     <ion-icon name="information-circle"></ion-icon>
-  </button>
+  </button>-->
 
 <!-- Här börjar Globen koden -->
   <div class="spacer" style="width:300px;height:44px;" id="venuesTabDefaultPage-spacer8"></div>
