@@ -1,7 +1,7 @@
   <ion-header>
       <ion-navbar color="dark">
         <ion-title>
-               
+          <img src="/assets/icon/evider_logo_icon.ico" height="40px">
         </ion-title>
           <ion-buttons end>
             <button (click)="openInfo($event)" ion-button large clear>
@@ -11,35 +11,33 @@
           </ion-buttons>
       </ion-navbar>
  </ion-header>
-  <ion-content padding id="page5">
-  <div class="spacer" style="width:300px;height:24px;" id="globen-spacer9"></div>
-<!--<button id="globen-button3" ion-button color="white" block small icon-right on-click="goToInfo2()">
-    Press me for more info!
-    <ion-icon name="information-circle"></ion-icon>
-  </button>-->
+  <ion-content padding>
+
+      <div class="event"> Text goes here if there is an ongoing event at the venue </div>
+      <div style="height:5px;"> </div> <!-- mini spacer -->
+      <div class="informationText">
+      The people icons indicates how many people are taking that particular route.
+      The lightbuld indicates which color of lights you need to follow to get to that station.
+      </div>
+      <div class="spacer"></div>
 
 <!-- Här börjar Globen koden -->
-  <div class="spacer" style="width:300px;height:44px;" id="venuesTabDefaultPage-spacer8"></div>
-  <ion-list id="globen-list8">
-<ion-item color="none" on-click="goToGlobenTunnelbana()" id="globen-list-item20">
-      <ion-avatar item-left>
-        <img src="/assets/imgs/bana.png" />
-      </ion-avatar>
-      <ion-icon name="warning"item-right color="danger"></ion-icon>
-
-      <h2>
-        Globen
-      </h2>
+      <ion-item class="box" on-click="goToGlobenTunnelbana()">
+          <ion-avatar item-left>
+            <img src="/assets/imgs/bana.png"/>
+          </ion-avatar>
+          <ion-icon class="bulb" name="md-bulb" item-right></ion-icon>
+          <ion-icon class="person" name="md-walk" item-right></ion-icon>
+          <h2> Globen </h2>
+          <h3> 13 min </h3>
     </ion-item>
-  </ion-list>
-  <div class="spacer" style="width:278.75px;height:11px;" id="globen-spacer5"></div>
-<!-- Här slutar Globen koden -->
 
+<!-- Här slutar Globen koden -->
+<div class="spacer"></div>
 
 <!-- Här börjar GUllmarsplankoden -->
-  <ion-list id="globen-list14">
 
- <ion-item color="none" on-click ="goToGullmarsplan()" id="globen-list-item18">
+ <ion-item on-click ="goToGullmarsplan()">
       <ion-avatar item-left>
         <img src="/assets/imgs/bana.png" />
       </ion-avatar>
@@ -50,14 +48,12 @@
       </h2>
 
     </ion-item>
-  </ion-list>
-<!-- Här slutar Gullmarsplankoden -->
 
-  <div class="spacer" style="width:278.75px;height:11px;" id="globen-spacer6"></div>
-
+<!-- Här slutar Gullmarsplankoden-->
+<div class="spacer"></div>
   <!-- Här börjar Blåsut koden -->
-  <ion-list id="globen-list16">
-  <ion-item color="none" on-click="goToBlasut()"  id="globen-list-item17">
+
+  <ion-item color="none" on-click="goToBlasut()">
       <ion-avatar item-left>
         <img src="/assets/imgs/bana.png" />
       </ion-avatar>
@@ -66,14 +62,11 @@
         Blåsut
       </h2>
     </ion-item>
-  </ion-list>
+
     <!-- Här slutar Blåsut koden -->
-
-
-  <div class="spacer" style="width:278.75px;height:11px;" id="globen-spacer4"></div>
-
+<div class="spacer"></div>
     <!-- Här börjar Skärmarbrink koden -->
-  <ion-list id="globen-list17">
+
     <ion-item color="none" on-click="goToSkarmarbrink()" id="globen-list-item19">
       <ion-avatar item-left>
         <img src="/assets/imgs/bana.png" />
@@ -83,7 +76,6 @@
         Skärmarbrink
       </h2>
     </ion-item>
-  </ion-list>
 <!-- Här slutar Skärmarbrink koden -->
 
 </ion-content>

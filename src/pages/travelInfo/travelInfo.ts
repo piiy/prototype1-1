@@ -6,12 +6,15 @@ import { Component } from '@angular/core'
      <ion-list-header align="center"><b>INFO</b></ion-list-header>
        <p align="center" margin=3px>
        The local transport is listed according to your position. The closest one comes first
-       </p>   
-       <p align="center" margin=3px>    
-     A red warning triangel <ion-icon name="warning" item-center color="danger"></ion-icon>
-      indicates a very crowded route. Consider taking another path.
-      
-     </p> 
+       </p>
+       <p align="center" margin=3px>
+     The <ion-icon name="md-walk"></ion-icon> icon
+      indicates how crowded a route is. Red indicates that it is very crowded,
+      orange that it is slightly crowded and green means that there is few people on the route.
+     </p>
+     <p align="center" margin=3px>
+     If you click on a station you get to know more about the route.
+     </p>
     `
 })
 export class TravelInfo {

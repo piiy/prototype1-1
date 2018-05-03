@@ -1,6 +1,8 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+
+
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
@@ -23,8 +25,6 @@ $app-direction: ltr;
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
 
-
-
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -35,7 +35,7 @@ $app-direction: ltr;
 
 $colors: (
   primary:    #000000,
-  background:  #eaeae9,
+  background:  #898989,
   yellow:     #fffd04,
   light:      #f4f4f4,
   dark:       #000,

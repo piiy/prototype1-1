@@ -1,41 +1,37 @@
 page-globen {
 
-.item {
+.event {
+  font-size: 14px;
+  text-align: center;
+  color: #ff0000;
 
 }
 
-#globen-button3{
+.informationText {
+  font-size: 12px;
+
+}
+
+.spacer {
+  width: auto;
+  height: 10px;
+
+}
+
+.item {
   background:#998;
-  padding: 20px;
   border-radius: 6px;
   color: #000;
+  height: 70px;
+
+}
+.bulb {
+  color: #00ff00;
 
 }
 
-#globen-list-item20 {
-  background: #998;
-  padding: 6px;
-  border-radius: 6px;
+.person{
+  color: #ff0000;
 }
-
-#globen-list-item18 {
-  background: #998;
-  padding: 6px;
-  border-radius: 6px;
-}
-
-#globen-list-item17 {
-  background: #998;
-  padding: 6px;
-  border-radius: 6px;
-}
-
-#globen-list-item19 {
-  background: #998;
-  padding: 6px;
-  border-radius: 6px;
-}
-
-
 
 }
