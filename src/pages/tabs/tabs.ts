@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 /* Change these to change the pages in the tabcontroller*/
 import { AboutPage } from '../about/about';
-import { HomePage } from '../home/home';
+/*import { HomePage } from '../home/home';*/
 import { VenuePage } from '../venue/venue';
 
 @Component({
