@@ -7,6 +7,7 @@ import { Info2Page } from '../info2/info2';
 import { MapGlobenT } from '../mapGlobenT/mapGlobenT';
 import { TravelInfo } from '../travelInfo/travelInfo';
 
+
 @Component({
   selector: 'page-globen',
   templateUrl: 'globen.html'
@@ -15,7 +16,9 @@ export class GlobenPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {
+
   }
+
   goToGlobenTunnelbana(params){
     this.navCtrl.push(MapGlobenT);
   }goToGullmarsplan(params){
