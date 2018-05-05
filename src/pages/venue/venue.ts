@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PopoverController, ViewController, NavController } from 'ionic-angular';
 import { VenueInfo } from '../venueInfo/venueInfo';
 import { GlobenPage} from '../globen/globen';
+import { ApiProvider } from '../../providers/api/api';
 
 @Component({
   templateUrl: 'venue.html'
@@ -10,12 +11,21 @@ import { GlobenPage} from '../globen/globen';
 export class VenuePage {
   venues;
 
-  constructor(public popoverCtrl: PopoverController, public navCtrl: NavController ) {
-    this.initializeVenues();
+  constructor(public popoverCtrl: PopoverController, public navCtrl: NavController, public provider: ApiProvider ) {
+    /*this.initializeVenues();*/
+    this.ionLoadVenues();
 
   }
 
-  initializeVenues() {  // Initierar lista med olika arenor
+  ionLoadVenues() { // Kommer att hämta olika arenor info från API
+    this.provider.obtainVenues()
+    .subscribe(
+      (data)=> {this.venues = data;},
+      (error)=> {console.log(error);}
+    )
+  }
+
+  /* initializeVenues() {  // Initierar lista med olika arenor
     this.venues = [
       {name: 'Ericsson Globe', id: 1},
       {name: 'Hovet', id: 2},
@@ -27,8 +37,9 @@ export class VenuePage {
       {name: 'Cirkus', id: 8}
     ];
   }
+  */
 
-  getVenues(ev) {
+/*  getVenues(ev) {
     this.initializeVenues();  // Återställer lista till alla arenor
 
     let val = ev.target.value;  // Sätter 'val' till värdet av 'ev'
@@ -39,7 +50,7 @@ export class VenuePage {
       })
     }
   }
-
+*/
   openInfo(myEvent) {   // Skapar en PopOver-sida när man trycker på "i"
     let popover = this.popoverCtrl.create(VenueInfo);
     popover.present({
