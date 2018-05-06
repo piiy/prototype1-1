@@ -23,9 +23,9 @@
     <ion-list><button (click)="goToPage()" ion-item *ngFor="let venue of venues">
       <ion-thumbnail item-start>
       <!--  <img [src]="'/assets/imgs/' + venue.id + '.jpg'"> -->
-        <img src="img/{{venue.thumbnailUrl}}.png">
+        <img [src]="venue.thumbnailUrl">
       </ion-thumbnail>
     <!--  {{ venue.name }}-->
-     {{venue.id}}-{{ venue.title }}
+     {{venue.id}}-{{ venue.title | uppercase }}
     </button></ion-list>
 </ion-content>
