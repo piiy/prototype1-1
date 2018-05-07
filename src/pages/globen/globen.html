@@ -80,5 +80,20 @@
       </h2>
     </ion-item>
 <!-- Här slutar Skärmarbrink koden -->
+<div class="spacer"></div>
+<!-- Här börjar test koden -->
+
+<ion-item ion-item *ngFor="let station of stations" color="none" on-click="goToSkarmarbrink()">
+
+    <ion-icon name="warning"item-right color="danger"></ion-icon>
+    <ion-avatar item-left>
+      <img img src="/assets/imgs/bana.png" />
+    </ion-avatar>
+    <ion-icon class="bulb" name="md-bulb" item-right></ion-icon>
+    <ion-icon class="person" name="md-walk" item-right><p>15 min</ion-icon>
+      <h2>
+      {{station.name}}
+      </h2>
+  </ion-item>
 
 </ion-content>

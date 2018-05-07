@@ -19,4 +19,8 @@ export class ApiProvider {
     return this.http.get('https://jsonplaceholder.typicode.com/photos')
   }
 
+  obtainTransport(){
+    return this.http.get('https://jsonplaceholder.typicode.com/users')
+  }
+
 }
