@@ -1,8 +1,7 @@
   <ion-header>
       <ion-navbar>
         <ion-title>
-         <img src="/assets/icon/evide_h.ico" height="30px">
-
+          <img src="/assets/icon/evide_h.ico" height="30px">
         </ion-title>
           <ion-buttons end>
             <button (click)="openInfo($event)" ion-button large clear>
@@ -18,7 +17,7 @@
       <div style="height:5px;"> </div> <!-- mini spacer -->
       <div class="informationText">
       The people icons indicates how many people are taking that particular route.
-      The lightbuld indicates which color of lights you need to follow to get to that station.
+      The lightbulb indicates which color of lights you need to follow to get to that station.
       </div>
       <div class="spacer"></div>
 
@@ -28,9 +27,12 @@
             <img src="/assets/imgs/bana.png"/>
           </ion-avatar>
           <ion-icon class="bulb" name="md-bulb" item-right></ion-icon>
-          <ion-icon class="person" name="md-walk" item-right></ion-icon>
+          <ion-icon class="person" name="md-walk" item-right><p>15 min</ion-icon>
           <h2> Globen </h2>
-          <h3> 13 min </h3>
+          <!-- <h3> Varningstriangel om stora störningar på stationen/i trafiken,
+          hämtas från SL API
+          <ion-icon name="warning"item-end color="danger">
+          <h3> -->
     </ion-item>
 
 <!-- Här slutar Globen koden -->

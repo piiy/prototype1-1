@@ -1,8 +1,18 @@
-.ion-ios-customicon,
-.ion-md-customicon {
+.ion-ios-customicon1,
+.ion-md-customicon1 {
   content: url(/assets/icon/icon_yel.png);
-  width: 25px;
-  height: auto;
+  width: auto;
+  height: 40px;
   padding: 2px;
+  align-items: center;
+
+}
+.ion-ios-customicon2,
+.ion-md-customicon2 {
+  content: url(/assets/icon/arena_icon.png);
+  width: auto;
+  height: 40px;
+  padding: 2px;
+  align-items: center;
 
 }
