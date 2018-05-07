@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { JwtMaker } from '../../providers/Jwt-maker/jwt';
 /*
   Generated class for the ApiProvider provider.
 
@@ -11,9 +11,24 @@ import { HttpClientModule } from '@angular/common/http';
 @Injectable()
 export class ApiProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private jwt:JwtMaker) {
     console.log('Hello ApiProvider Provider');
   }
+  getVenues(str:string) {
+      let headers = new HttpHeaders();
+    let other_headers = headers.append('Authorization', 'Bearer ' + this.jwt.makeToken(str));
+      console.log("headers: ",JSON.stringify(headers));
+    var response = this.http.get("https://pvt.dsv.su.se/Group9/jwtSharp", {headers: other_headers});
+      return response;
+}
+getEvents(str:string) {
+    let headers = new HttpHeaders();
+  let other_headers = headers.append('Authorization', 'Bearer ' + this.jwt.makeToken(str));
+    console.log("headers: ",JSON.stringify(headers));
+  var response = this.http.get("https://pvt.dsv.su.se/Group9/jwtSharp", {headers: other_headers});
+    return response;
+}
+
 
   obtainVenues(){
     return this.http.get('https://jsonplaceholder.typicode.com/photos')
