@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { PopoverController, ViewController, NavController } from 'ionic-angular';
 import { VenueInfo } from '../venueInfo/venueInfo';
-import { GlobenPage} from '../globen/globen';
+import { SelectedVenue} from '../selectedVenue/selectedVenue';
 import { ApiProvider } from '../../providers/api/api';
 
 @Component({
-  templateUrl: 'venue.html'
+  templateUrl: 'venueList.html'
 })
 
-export class VenuePage {
+export class VenueList {
   venues;
   splash = true;
   //tabBarElement: any;
@@ -70,7 +70,5 @@ export class VenuePage {
     });            // där man klickar.
   }
 
-  goToPage():void
-  {  this.navCtrl.push(GlobenPage);}
 
 }
