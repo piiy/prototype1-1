@@ -17,6 +17,7 @@ need to import the page we are navigating to aswell*/
 navigateToVenue():void
   { this.navCtrl.push(VenuePage);
   }
+
 }
 
 

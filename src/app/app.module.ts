@@ -16,6 +16,10 @@ import { MapBlasut } from '../pages/mapBlasut/mapBlasut';
 import { MapGullmarsplan } from '../pages/mapGullmarsplan/mapGullmarsplan';
 import { MapSkarmarbrink } from '../pages/mapSkarmarbrink/mapSkarmarbrink';
 import { TravelInfo } from '../pages/travelInfo/travelInfo';
+import { ApiProvider } from '../providers/api/api';
+import { HttpClientModule } from '@angular/common/http';
+import { JwtMaker } from '../providers/Jwt-maker/jwt';
+import {JwtBuilder,algorithm} from "jwt-builder";
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { TravelInfo } from '../pages/travelInfo/travelInfo';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +61,9 @@ import { TravelInfo } from '../pages/travelInfo/travelInfo';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiProvider,
+    JwtMaker
   ]
 })
 export class AppModule {}
