@@ -1,3 +1,10 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/imgs/logo5.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
 <ion-header>
   <ion-navbar>
     <ion-title>
@@ -22,8 +29,10 @@
 
     <ion-list><button (click)="goToPage()" ion-item *ngFor="let venue of venues">
       <ion-thumbnail item-start>
-        <img [src]="'/assets/imgs/' + venue.id + '.jpg'">
+      <!--  <img [src]="'/assets/imgs/' + venue.id + '.jpg'"> -->
+        <img [src]="venue.thumbnailUrl">
       </ion-thumbnail>
-     {{ venue.name }}
+    <!--  {{ venue.name }}-->
+     {{venue.id}}-{{ venue.title | uppercase }}
     </button></ion-list>
 </ion-content>
