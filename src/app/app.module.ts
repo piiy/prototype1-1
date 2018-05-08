@@ -18,6 +18,8 @@ import { MapSkarmarbrink } from '../pages/mapSkarmarbrink/mapSkarmarbrink';
 import { TravelInfo } from '../pages/travelInfo/travelInfo';
 import { ApiProvider } from '../providers/api/api';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtMaker } from '../providers/Jwt-maker/jwt';
+import {JwtBuilder,algorithm} from "jwt-builder";
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,
+    JwtMaker
   ]
 })
 export class AppModule {}
