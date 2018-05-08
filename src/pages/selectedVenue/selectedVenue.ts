@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, PopoverController } from 'ionic-angular';
-import { MapGullmarsplan } from '../mapGullmarsplan/mapGullmarsplan';
-import { MapBlasut } from '../mapBlasut/mapBlasut';
-import { MapSkarmarbrink } from '../mapSkarmarbrink/mapSkarmarbrink';
 import { Info2Page } from '../info2/info2';
-import { MapGlobenT } from '../mapGlobenT/mapGlobenT';
 import { TravelInfo } from '../travelInfo/travelInfo';
 import { ApiProvider } from '../../providers/api/api';
+import { SelectedRoute } from '../selectedRoute/selectedRoute';
 
 
 @Component({
-  selector: 'page-globen',
-  templateUrl: 'globen.html'
+  selector: 'page-selectedVenue',
+  templateUrl: 'selectedVenue.html'
 })
-export class GlobenPage {
+export class SelectedVenue {
   stations;
   // this tells the tabs component which Pages
   // should be each tab's root Page
@@ -22,17 +19,10 @@ export class GlobenPage {
 
   }
 
-  goToGlobenTunnelbana(params){
-    this.navCtrl.push(MapGlobenT);
-  }goToGullmarsplan(params){
-    this.navCtrl.push(MapGullmarsplan);
-  }goToBlasut(params){
-    this.navCtrl.push(MapBlasut);
-  }goToSkarmarbrink(params){
-    this.navCtrl.push(MapSkarmarbrink);
-  }goToInfo2(params){
-    this.navCtrl.push(Info2Page);
+  goToselectedRoute(params){
+    this.navCtrl.push(SelectedRoute);
   }
+
   openInfo(myEvent) {   // Skapar en PopOver-sida när man trycker på "i"
     let popover = this.popoverCtrl.create(TravelInfo);
     popover.present({
