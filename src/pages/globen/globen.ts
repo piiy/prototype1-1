@@ -6,6 +6,7 @@ import { MapSkarmarbrink } from '../mapSkarmarbrink/mapSkarmarbrink';
 import { Info2Page } from '../info2/info2';
 import { MapGlobenT } from '../mapGlobenT/mapGlobenT';
 import { TravelInfo } from '../travelInfo/travelInfo';
+import { ApiProvider } from '../../providers/api/api';
 
 
 @Component({
@@ -13,9 +14,11 @@ import { TravelInfo } from '../travelInfo/travelInfo';
   templateUrl: 'globen.html'
 })
 export class GlobenPage {
+  stations;
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {
+  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider) {
+  this.ionLoadVenues();
 
   }
 
@@ -36,4 +39,13 @@ export class GlobenPage {
       ev: myEvent  // Skickar med klick-eventet så att rutan dyker upp
     });            // där man klickar.
   }
+
+  ionLoadVenues() { // Kommer att hämta olika arenor info från API
+    this.provider.obtainTransport()
+    .subscribe(
+      (data)=> {this.stations = data;},
+      (error)=> {console.log(error);}
+    )
+  }
+
 }

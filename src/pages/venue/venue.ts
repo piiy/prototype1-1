@@ -10,10 +10,13 @@ import { ApiProvider } from '../../providers/api/api';
 
 export class VenuePage {
   venues;
+  splash = true;
+  //tabBarElement: any;
 
   constructor(public popoverCtrl: PopoverController, public navCtrl: NavController, public provider: ApiProvider ) {
     /*this.initializeVenues();*/
     this.ionLoadVenues();
+  //  this.tabBarElement = document.querySelector('.tabbar');
 
   }
 
@@ -24,6 +27,15 @@ export class VenuePage {
       (error)=> {console.log(error);}
     )
   }
+
+  ionViewDidLoad(){
+    //  this.tabBarElement.style.display = 'none';
+      setTimeout(() => {
+        this.splash = false;
+  //      this.tabBarElement.style.display = 'flex';
+
+      }, 4000);
+    }
 
   /* initializeVenues() {  // Initierar lista med olika arenor
     this.venues = [
