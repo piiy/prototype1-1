@@ -31,7 +31,7 @@ getEvents(str:string) {
 
 
   obtainVenues(){
-    return this.http.get('https://jsonplaceholder.typicode.com/photos')
+    return this.http.get('https://my-json-server.typicode.com/piiy/dbtest/posts')
   }
 
   obtainTransport(){
