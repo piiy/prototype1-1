@@ -29,9 +29,9 @@ klickedVenue: venueTitle,
   }
 
   ionLoadVenues() { // Kommer att hämta olika arenor info från API
-    this.provider.obtainVenues()
+    this.provider.getVenues("str")
     .subscribe(
-      (data)=> {this.venues = data;},
+      (data)=> {this.venues = data["results"];},
       (error)=> {console.log(error);}
     )
   }

@@ -30,7 +30,7 @@
     <ion-list><button (click)="goToPage()" ion-item *ngFor="let venue of venues">
       <ion-thumbnail item-start>
       <!--  <img [src]="'/assets/imgs/' + venue.id + '.jpg'"> -->
-        <img [src]="venue.url">
+        <img [src]="venue.img_url">
       </ion-thumbnail>
     <!--  {{ venue.name }}-->
      {{ venue.title | uppercase }}
