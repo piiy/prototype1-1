@@ -38,7 +38,7 @@ else{
     this.provider.getEvents(venue)
     .subscribe(
       (data)=> {
-      //  this.stations=data["results"];
+        this.stations=data["results"];
       },
       (error)=> {console.log("error: ", JSON.stringify(error));}
     )
