@@ -11,6 +11,7 @@ import { ApiProvider } from '../../providers/api/api';
 export class VenueList {
   venues;
   splash = true;
+
   //tabBarElement: any;
 
   constructor(public popoverCtrl: PopoverController, public navCtrl: NavController, public provider: ApiProvider ) {
@@ -18,6 +19,13 @@ export class VenueList {
     this.ionLoadVenues();
   //  this.tabBarElement = document.querySelector('.tabbar');
 
+  }
+  goToPage(venueTitle: string){
+    console.log(venueTitle);
+    this.navCtrl.push(SelectedVenue, {
+klickedVenue: venueTitle,
+
+    })
   }
 
   ionLoadVenues() { // Kommer att hämta olika arenor info från API
