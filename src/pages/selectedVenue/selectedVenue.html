@@ -1,11 +1,12 @@
 <ion-header>
     <ion-navbar>
       <ion-title>
-        <img src="/assets/icon/evide_h.ico" height="30px">
+        <!-- load selected venue name -->
+        GLOBEN
       </ion-title>
         <ion-buttons end>
           <button (click)="openInfo($event)" ion-button large clear>
-            <ion-icon name="information-circle" style="zoom:1.8;">
+            <ion-icon name="ios-information-circle-outline" style="zoom:1.8;">
             </ion-icon>
           </button>
         </ion-buttons>
@@ -13,50 +14,29 @@
 </ion-header>
 <ion-content padding>
 
-    <div class="event"> Text goes here if there is an ongoing event at the venue </div>
-    <div style="height:5px;"> </div> <!-- mini spacer -->
-    <div class="informationText">
-    The people icons indicates how many people are taking that particular route.
-    The lightbulb indicates which color of lights you need to follow to get to that station.
+    <div class="event">
+      Text goes here if there is an ongoing event at the venue
     </div>
+    <div style="height:5px;"> </div> <!-- mini spacer -->
     <div class="spacer"></div>
+<ion-item class="stations">
+  <table width="100%">
 
-<!-- Här börjar Globen koden -->
+    <tr>
+      <td rowspan="2"> </td>
+      <td><ion-avatar item-left>
+        <img img src="/assets/imgs/bana.png" /> <!-- Byt till länk från db för stationens typ -->
+      </ion-avatar> </td>
+      <td item-left> Globen<!-- Byt till namn hämtat från db--> </td>
+      <td> <ion-icon class="person" name="md-walk" item-right></ion-icon></td>
+      </tr>
+      <tr>
+        <td></td>
+      <td> 800 m<!-- Byt till avstånd hämtat från db--></td>
+      <td>  13 min<!-- Byt till tid hämtat från db--> </td>
+    </tr>
+</table>
 
-
-<!-- Här slutar Globen koden -->
-<div class="spacer"></div>
-
-<!-- Här börjar GUllmarsplankoden -->
-
-
-
-<!-- Här slutar Gullmarsplankoden-->
-<div class="spacer"></div>
-<!-- Här börjar Blåsut koden -->
-
-
-
-  <!-- Här slutar Blåsut koden -->
-<div class="spacer"></div>
-  <!-- Här börjar Skärmarbrink koden -->
-
-
-<!-- Här slutar Skärmarbrink koden -->
-<div class="spacer"></div>
-<!-- Här börjar test koden -->
-
-<ion-item ion-item *ngFor="let station of stations" color="none" on-click="goToSkarmarbrink()">
-
-  <ion-icon name="warning"item-right color="danger"></ion-icon>
-  <ion-avatar item-left>
-    <img img src="/assets/imgs/bana.png" />
-  </ion-avatar>
-  <ion-icon class="bulb" name="md-bulb" item-right></ion-icon>
-  <ion-icon class="person" name="md-walk" item-right><p>15 min</ion-icon>
-    <h2>
-    {{station.name}}
-    </h2>
 </ion-item>
 
 </ion-content>
