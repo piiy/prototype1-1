@@ -12,8 +12,8 @@ import { SelectedRoute } from '../selectedRoute/selectedRoute';
 export class TabsPage {
 
   tab1Root = VenueList; /*Change to change first page, I think */
-  tab2Root = SelectedVenue;
-  
+  tab2Root = SelectedRoute;
+
   constructor() {
 
   }

@@ -13,30 +13,30 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
+<ion-grid>
+  <ion-row>
+    <ion-col align-self-center style="border:solid ;"> <!-- Bara att ändra border, hittade inga andra attribut nu-->
+      Info about ongoing event goes here
+    </ion-col>
+  </ion-row>
 
-    <div class="event">
-      Text goes here if there is an ongoing event at the venue
-    </div>
+</ion-grid> <!-- En "knapp" skapa ny för varje station-->
     <div style="height:5px;"> </div> <!-- mini spacer -->
     <div class="spacer"></div>
-<ion-item class="stations">
-  <table width="100%">
+    <ion-item class="stations">
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-stretch style="max-width:10px; background-color:#ff0000">  </ion-col>
+          <ion-col><ion-avatar item-left>
+            <img img src="/assets/imgs/bana.png" /> <!-- Byt till länk från db för stationens typ -->
+          </ion-avatar> </ion-col>
+          <ion-col item-left> <h3>Globen</h3> <p>  800 m </p> <!-- Byt till namn och avstånd hämtat från db--> </ion-col>
+          <ion-col> <ion-icon class="person" name="md-walk" item-right></ion-icon> <!-- byta till vår ikon -->
+          <p> 12 min<!-- Byt till tid hämtat från db--> </p>
+        </ion-col>
+        </ion-row>
+    </ion-grid>
 
-    <tr>
-      <td rowspan="2"> </td>
-      <td><ion-avatar item-left>
-        <img img src="/assets/imgs/bana.png" /> <!-- Byt till länk från db för stationens typ -->
-      </ion-avatar> </td>
-      <td item-left> Globen<!-- Byt till namn hämtat från db--> </td>
-      <td> <ion-icon class="person" name="md-walk" item-right></ion-icon></td>
-      </tr>
-      <tr>
-        <td></td>
-      <td> 800 m<!-- Byt till avstånd hämtat från db--></td>
-      <td>  13 min<!-- Byt till tid hämtat från db--> </td>
-    </tr>
-</table>
-
-</ion-item>
+    </ion-item>
 
 </ion-content>
