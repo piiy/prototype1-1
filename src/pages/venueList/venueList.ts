@@ -10,6 +10,7 @@ import { ApiProvider } from '../../providers/api/api';
 
 export class VenueList {
   venues;
+  downloadedVenues;
   splash = true;
 
   //tabBarElement: any;
@@ -31,7 +32,9 @@ klickedVenue: venueTitle,
   ionLoadVenues() { // Kommer att hämta olika arenor info från API
     this.provider.getVenues("str")
     .subscribe(
-      (data)=> {this.venues = data["results"];},
+      (data)=> {this.downloadedVenues = data["results"];
+               this.venues=this.downloadedVenues;
+               },
       (error)=> {console.log(error);}
     )
   }
@@ -59,8 +62,8 @@ klickedVenue: venueTitle,
   }
   */
 
-/*  getVenues(ev) {
-    this.initializeVenues();  // Återställer lista till alla arenor
+  getVenues(ev) {
+    this.venues=this.downloadedVenues;  // Återställer lista till alla arenor
 
     let val = ev.target.value;  // Sätter 'val' till värdet av 'ev'
 
@@ -70,7 +73,7 @@ klickedVenue: venueTitle,
       })
     }
   }
-*/
+
   openInfo(myEvent) {   // Skapar en PopOver-sida när man trycker på "i"
     let popover = this.popoverCtrl.create(VenueInfo);
     popover.present({
@@ -80,3 +83,4 @@ klickedVenue: venueTitle,
 
 
 }
+
