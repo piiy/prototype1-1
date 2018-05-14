@@ -69,7 +69,8 @@ klickedVenue: venueTitle,
 
     if(val && val.trim() != '') {  // Filtrerar så länge det inte är en tom sträng
       this.venues = this.venues.filter((item) => {
-        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        if(val[0].toLowerCase()==item.name[0]||val[0].toUpperCase()==item.name[0]){
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);}
       })
     }
   }
