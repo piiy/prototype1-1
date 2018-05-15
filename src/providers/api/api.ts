@@ -34,8 +34,8 @@ getEvents(str:string) {
     return this.http.get('https://my-json-server.typicode.com/piiy/dbtest/posts')
   }
 
-  obtainTransport(){
-    return this.http.get('https://jsonplaceholder.typicode.com/users')
+  getStations(){
+    return this.http.get('https://my-json-server.typicode.com/piiy/testdb/posts')
   }
 
 }

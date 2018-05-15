@@ -27,6 +27,7 @@ else{
     this.navCtrl.push(SelectedRoute);
   }
 
+
   openInfo(myEvent) {   // Skapar en PopOver-sida när man trycker på "i"
     let popover = this.popoverCtrl.create(TravelInfo);
     popover.present({
@@ -34,7 +35,7 @@ else{
     });            // där man klickar.
   }
 
-  ionLoadVenues(venue:string) { // Kommer att hämta olika arenor info från API
+  ionLoadVenues(venue:string) { // Kommer att hämta olika arenors info från API
     this.provider.getEvents(venue)
     .subscribe(
       (data)=> {

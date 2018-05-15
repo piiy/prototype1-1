@@ -23,7 +23,7 @@
 </ion-grid> <!-- En "knapp" skapa ny för varje station-->
     <div style="height:5px;"> </div> <!-- mini spacer -->
     <div class="spacer"></div>
-    <ion-item class="stations">
+    <ion-item class="stations" (click)="goToselectedRoute()">
       <ion-grid>
         <ion-row>
           <ion-col align-self-stretch style="max-width:10px; background-color:#ff0000">  </ion-col>
