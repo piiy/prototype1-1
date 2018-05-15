@@ -26,15 +26,15 @@
     <div class="spacer"></div>
 
 <!-- Lista av stationer -->
-    <ion-list><button style="margin-bottom: 20px" (click)="goToselectedRoute()" ion-item class="stations" *ngFor="let station of stations">
+    <ion-list><button class="stations" style="margin-bottom: 20px" (click)="goToselectedRoute()" ion-item class="stations" *ngFor="let station of stations">
       <ion-grid>
         <ion-row>
-          <ion-col align-self-stretch style="max-width:10px; background-color:#ff0000">  </ion-col>
-          <ion-col><ion-avatar item-left>
+          <ion-col align-self-stretch align-self-center style="max-width:10px; background-color:#ff0000;">  </ion-col><!-- Byt till färg för lamporna, från API/db.-->
+          <ion-col align-self-stretch style="width:10px"><ion-avatar item-left>
             <img [src]="station.t_img_url"/> <!-- Byt till länk från db för stationens typ -->
           </ion-avatar> </ion-col>
-          <ion-col item-left > <h4>{{station.name | uppercase}}</h4> <p>  800 m </p> <!-- Byt till namn och avstånd hämtat från db--> </ion-col>
-          <ion-col> <ion-icon class="person" name="md-walk" item-right></ion-icon> <!-- byta till vår ikon, från db -->
+          <ion-col align-self-stretch item-left style="text-align:left"> <h4>{{station.name | uppercase}}</h4> <p>  800 m </p> <!-- Byt till namn och avstånd hämtat från db--> </ion-col>
+          <ion-col align-self-stretch> <ion-icon class="person" name="md-walk" item-right></ion-icon> <!-- byta till vår ikon, från db -->
           <p> 12 min<!-- Byt till tid hämtat från db--> </p>
         </ion-col>
         </ion-row>
