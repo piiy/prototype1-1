@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+    <!-- load selected station name -->
+    GLOBEN
+  </ion-title>
+  <ion-buttons end>
+    <button (click)="openInfo($event)" ion-button large clear>
+      <ion-icon name="ios-information-circle-outline" style="zoom:1.8;">
+      </ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding class ="bg"> <!--byta ut till färg på lamporna för den stationen-->
+<ion-item text-center class="title">
+  <ion-avatar>
+<img class="icon" img src="/assets/imgs/bana.png">  <!-- byta ut till dynamisk -->
+</ion-avatar>
+<h3 class="h3"> Globen </h3> <!-- byta ut till dynamisk -->
+ </ion-item>
+
+ <ion-item padding class="box">
+ importera tågtider från sl
+ <p> importera hur mkt människor på rutten</p>
+
+
+ </ion-item>
+
+</ion-content>
