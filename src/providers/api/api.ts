@@ -21,14 +21,13 @@ export class ApiProvider {
     var response = this.http.get("https://pvt.dsv.su.se/Group9/venues");
       return response;
 }
-getEvents(str:string) {
+getStations(str:string) {
     let headers = new HttpHeaders();
   let other_headers = headers.append('Authorization', 'Bearer ' + this.jwt.makeToken(str));
     console.log("headers: ",JSON.stringify(headers));
   var response = this.http.get("https://pvt.dsv.su.se/Group9/api/v1/endpoints");
     return response;
 }
-
 
   obtainVenues(){
     return this.http.get('https://my-json-server.typicode.com/piiy/dbtest/posts')
