@@ -33,7 +33,7 @@ getStations(str:string) {
     return this.http.get('https://my-json-server.typicode.com/piiy/dbtest/posts')
   }
 
-  getStations(){
+  obtainStations(){
     return this.http.get('https://my-json-server.typicode.com/piiy/testdb/posts')
   }
 
