@@ -31,7 +31,7 @@ else{
     let popover = this.popoverCtrl.create(TravelInfo);
     popover.present({
       ev: myEvent
-    });            
+    });
   }
 
   ionLoadStations(venue:string) { // Kommer att hämta olika stationer från API
