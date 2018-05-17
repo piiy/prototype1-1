@@ -9,7 +9,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { VenueList } from '../pages/venueList/venueList';
 import { SelectedVenue } from '../pages/selectedVenue/selectedVenue';
 import { VenueInfo } from '../pages/venueInfo/venueInfo';
-import { Info2Page } from '../pages/info2/info2';
 import { SelectedRoute } from '../pages/selectedRoute/selectedRoute';
 import { TravelInfo } from '../pages/travelInfo/travelInfo';
 import { TravelInfo2 } from '../pages/travelInfo2/travelInfo2';
@@ -26,7 +25,6 @@ import { JwtMaker } from '../providers/Jwt-maker/jwt';
     SelectedVenue,
     VenueInfo,
     SelectedRoute,
-    Info2Page,
     TabsPage,
     TravelInfo,
     TravelInfo2
@@ -43,7 +41,6 @@ import { JwtMaker } from '../providers/Jwt-maker/jwt';
     VenueList,
     SelectedRoute,
     SelectedVenue,
-    Info2Page,
     VenueInfo,
     TabsPage,
     TravelInfo,
