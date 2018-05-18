@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, PopoverController, NavParams } from 'ionic-angular';
-import { Info2Page } from '../info2/info2';
 import { TravelInfo } from '../travelInfo/travelInfo';
 import { ApiProvider } from '../../providers/api/api';
 import { SelectedRoute } from '../selectedRoute/selectedRoute';
@@ -12,19 +11,18 @@ import { SelectedRoute } from '../selectedRoute/selectedRoute';
 })
 export class SelectedVenue {
   stations;
-  public klickedVenue;
+  public venueName;
 
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider, public navParams: NavParams) {
-  this.klickedVenue = navParams.get("klickedVenue");
-if(this.klickedVenue == "Globen"){this.testLoader();}
-else{
-  this.ionLoadStations(this.klickedVenue);}
+  this.venueName = navParams.get("venueName");
+  this.ionLoadStations(this.venueName);
   }
 
-  goToselectedRoute(params){
-    this.navCtrl.push(SelectedRoute);
+  goToselectedRoute(routeName:string, siteId:string){
+    this.navCtrl.push(SelectedRoute, {
+      routeName: routeName,
+      siteId: siteId,
+    });
   }
 
   openInfo(myEvent) {   // Skapar en PopOver-sida när man trycker på "i"
