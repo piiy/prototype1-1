@@ -3,7 +3,8 @@ import { NavController, PopoverController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import {DisturbanceInfo} from '../disturbanceInfo/disturbanceInfo';
 import { TravelInfo2 } from '../travelInfo2/travelInfo2';
-
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
 @Component({
   selector: 'page-selectedRoute',
   templateUrl: 'selectedRoute.html'
@@ -26,11 +27,16 @@ stationInformation;
   this.venueId = navParams.get("venueId");
 
     this.getDepartures(this.siteId);
+    setInterval(() => {
+          console.log('timer');
+          this.getDepartures(this.siteId);
+    },5000);
     this.getStationInformation(this.venueId);
 
   }
 
   getDepartures(siteId:string) {
+    console.log("Uppdaterar");
 this.provider.getDepartures(siteId)
 .subscribe(
  (data) => {
