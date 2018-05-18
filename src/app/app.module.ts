@@ -14,7 +14,7 @@ import { TravelInfo2 } from '../pages/travelInfo2/travelInfo2';
 import { ApiProvider } from '../providers/api/api';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtMaker } from '../providers/Jwt-maker/jwt';
-
+import { DisturbanceInfo } from '../pages/disturbanceInfo/disturbanceInfo';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,8 @@ import { JwtMaker } from '../providers/Jwt-maker/jwt';
     SelectedVenue,
     VenueInfo,
     SelectedRoute,
+    TravelInfo,
+    DisturbanceInfo
     TravelInfo,
     TravelInfo2
   ],
@@ -40,6 +42,8 @@ import { JwtMaker } from '../providers/Jwt-maker/jwt';
     SelectedRoute,
     SelectedVenue,
     VenueInfo,
+    TravelInfo,
+    DisturbanceInfo
     TravelInfo,
     TravelInfo2
   ],
