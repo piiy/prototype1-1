@@ -16,6 +16,7 @@ import { ApiProvider } from '../providers/api/api';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtMaker } from '../providers/Jwt-maker/jwt';
 import {JwtBuilder,algorithm} from "jwt-builder";
+import { DisturbanceInfo } from '../pages/disturbanceInfo/disturbanceInfo';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {JwtBuilder,algorithm} from "jwt-builder";
     SelectedRoute,
     Info2Page,
     TabsPage,
-    TravelInfo
+    TravelInfo,
+    DisturbanceInfo
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import {JwtBuilder,algorithm} from "jwt-builder";
     Info2Page,
     VenueInfo,
     TabsPage,
-    TravelInfo
+    TravelInfo,
+    DisturbanceInfo
   ],
   providers: [
     StatusBar,
