@@ -17,7 +17,7 @@ export class SelectedVenue {
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider, public navParams: NavParams) {
   this.venueName = navParams.get("venueName");
   this.venueId = navParams.get("venueId");
-  this.ionLoadStations(this.venueName);
+  this.ionLoadStations(this.venueId);
   }
 
  goToselectedRoute(routeName:string, siteId:string, tType ){
