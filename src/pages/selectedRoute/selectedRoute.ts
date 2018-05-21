@@ -6,7 +6,7 @@ import { TravelInfo2 } from '../travelInfo2/travelInfo2';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import { Geolocation } from '@ionic-native/geolocation';
-
+declare var google;
 @Component({
   selector: 'page-selectedRoute',
   templateUrl: 'selectedRoute.html'
