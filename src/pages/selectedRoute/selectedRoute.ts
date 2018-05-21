@@ -30,7 +30,7 @@ stationInformation;
     setInterval(() => {
           console.log('timer');
           this.getDepartures(this.siteId);
-    },5000);
+    },60000);
     this.getStationInformation(this.venueId);
 
   }
