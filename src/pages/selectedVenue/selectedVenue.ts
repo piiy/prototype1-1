@@ -26,6 +26,8 @@ export class SelectedVenue {
       siteId: siteId,
       venueId: this.venueId,
       transport_type: tType,
+      venueName: this.venueName,
+      
     });
   }
 
@@ -45,18 +47,6 @@ export class SelectedVenue {
       (error)=> {console.log("error: ", JSON.stringify(error));}
     )
   }
-testLoader(){
-  this.stations = [
-    {name: 'Ericsson Globe', id: 1},
-    {name: 'Hovet', id: 2},
-    {name: 'Annexet', id: 3},
-    {name: 'Tele2 Arena', id: 4},
-    {name: 'Friends Arena', id: 5},
-    {name: 'Stockholms Stadion', id: 6},
-    {name: 'Berns', id: 7},
-    {name: 'Cirkus', id: 8}
-  ];
-}
 }
 interface MyObj {
   name: string

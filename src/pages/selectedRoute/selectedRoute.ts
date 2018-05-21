@@ -21,22 +21,17 @@ export class SelectedRoute {
   departures;
   public routeName;
   public siteId;
+  public venueName;
   public aColor: string;
   public bColor: string;
   stationInformation;
-
-
-  //ändra till dynamiska destinationer
-  // destination = Venue
-  // MyLocation = Stationsnamn, Transport_type
-  Destination: any = 'Kista';
-  MyLocation: any = 'Sollentuna,Train';
 
   constructor(public navCtrl: NavController, public provider: ApiProvider, public popoverCtrl: PopoverController, public navParams: NavParams, public geo: Geolocation) {
     this.routeName = navParams.get("routeName");
     this.siteId = navParams.get("siteId");
     this.transport_type = navParams.get("transport_type");
     this.venueId = navParams.get("venueId");
+    this.venueName = navParams.get("venueName");
 
     this.getDepartures(this.siteId);
     setInterval(() => {
@@ -78,7 +73,7 @@ export class SelectedRoute {
 
     directionsService.route({
       // byt myLocation = Venue;
-      origin: this.MyLocation,
+      origin: this.venueName,
       // byt Destination = "routeName,Transport_type_name";
       destination: this.routeName,
       travelMode: 'WALKING'
