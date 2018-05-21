@@ -12,16 +12,20 @@ import { SelectedRoute } from '../selectedRoute/selectedRoute';
 export class SelectedVenue {
   stations;
   public venueName;
+  public venueId;
 
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider, public navParams: NavParams) {
   this.venueName = navParams.get("venueName");
-  this.ionLoadStations(this.venueName);
+  this.venueId = navParams.get("venueId");
+  this.ionLoadStations(this.venueId);
   }
 
-  goToselectedRoute(routeName:string, siteId:string){
+ goToselectedRoute(routeName:string, siteId:string, tType ){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
+      venueId: this.venueId,
+      transport_type: tType,
     });
   }
 
