@@ -110,6 +110,36 @@ export class SelectedRoute {
     )
   }
 
+this.provider.getDepartures(siteId)
+.subscribe(
+ (data) => {
+
+if(this.transport_type == '1') {
+  try{
+ this.departures = data["ResponseData"].Metros;
+}catch( err){console.log("errormessage");
+alert("There is a problem with loading the departures at this time, please try again!");
+}
+} else if(this.transport_type == '2') {
+  try{
+ this.departures = data["ResponseData"].Trams;
+ }catch( err){console.log("errormessage");
+alert("There is a problem with loading the departures at this time, please try again!");}
+} else if(this.transport_type == '3') {
+  try{
+ this.departures = data["ResponseData"].Buses;
+ }catch( err){console.log("errormessage");
+alert("There is a problem with loading the departures at this time, please try again!");
+}
+}
+
+
+ },
+ (error) => {console.log("Error: ", JSON.stringify(error));}
+)
+
+ }
+
 
   openDisturbanceInfo(myEvent) { // Skapar popup-sida med störningsinfo.
 
