@@ -15,31 +15,44 @@ declare var google;
 export class SelectedRoute {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  
+
   private venueId;
   public transport_type;
   departures;
   public routeName;
   public siteId;
-  public venueName;
   public aColor: string;
   public bColor: string;
+  public destinationString: string;
   stationInformation;
+  stationTypeString;
+public venueName;
+
+  //ändra till dynamiska destinationer
+  // destination = Venue
+  // MyLocation = Stationsnamn, Transport_type
+  Destination: any = 'Kista';
+  MyLocation: any = 'Sollentuna,Train';
 
   constructor(public navCtrl: NavController, public provider: ApiProvider, public popoverCtrl: PopoverController, public navParams: NavParams, public geo: Geolocation) {
     this.routeName = navParams.get("routeName");
     this.siteId = navParams.get("siteId");
     this.transport_type = navParams.get("transport_type");
     this.venueId = navParams.get("venueId");
+    this.stationType = "";
     this.venueName = navParams.get("venueName");
-
+    console.log("transporttype: ", this.transport_type);
+if(this.transport_type==1){this.stationTypeString = "Metro";}
+if(this.transport_type==2){this.stationTypeString = "light_rail_station";}
+if(this.transport_type==3){this.stationTypeString = "Bus";}
     this.getDepartures(this.siteId);
     setInterval(() => {
       console.log('timer');
       this.getDepartures(this.siteId);
     },60000);
     this.getStationInformation(this.venueId);
-
+this.destinationString = this.routeName+", "+ this.stationTypeString;
+console.log("destinationString: ", this.destinationString);
   }
 
   ionViewDidLoad(){
@@ -72,10 +85,11 @@ export class SelectedRoute {
     });
 
     directionsService.route({
+
       // byt myLocation = Venue;
       origin: this.venueName,
       // byt Destination = "routeName,Transport_type_name";
-      destination: this.routeName,
+      destination: this.destinationString,
       travelMode: 'WALKING'
     }, function(response, status) {
       if (status === 'OK') {
