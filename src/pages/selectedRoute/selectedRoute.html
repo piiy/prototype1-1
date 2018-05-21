@@ -17,18 +17,10 @@
 
 <ion-content padding class ="bg" [style.background-color]="aColor"> <!--byta ut till fÃ¤rg pÃ¥ lamporna fÃ¶r den stationen-->
 <ion-item no-lines text-center class="title" [style.background-color]="bColor"><!--byta ut till fÃ¤rg pÃ¥ lamporna fÃ¶r den stationen-->
-<ion-grid>
-  <ion-row>
-    <ion-col width-25 style="text-align:right">
-  <ion-avatar item-right>
-<img class="icon" img src="/assets/imgs/bana.png">  <!-- byta ut till dynamisk -->
+  <ion-avatar item-left>
+<img class="icon" img [src]="icon"/>  <!-- byta ut till dynamisk -->
 </ion-avatar>
-</ion-col>
-<ion-col width-75 style="text-align:left">
-   {{ routeName }}
-</ion-col>
-</ion-row>
-</ion-grid>
+  {{ routeName }}
 </ion-item>
 
 <!-- GoogleMaps karta -->

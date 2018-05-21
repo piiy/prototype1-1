@@ -20,14 +20,14 @@ export class SelectedVenue {
   this.ionLoadStations(this.venueId);
   }
 
- goToselectedRoute(routeName:string, siteId:string, tType ){
+ goToselectedRoute(routeName:string, siteId:string, tType, icon){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
       venueId: this.venueId,
       transport_type: tType,
       venueName: this.venueName,
-      
+      icon: icon,
     });
   }
 

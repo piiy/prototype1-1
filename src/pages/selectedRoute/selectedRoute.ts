@@ -21,6 +21,7 @@ export class SelectedRoute {
   departures;
   public routeName;
   public siteId;
+  public icon;
   public aColor: string;
   public bColor: string;
   public destinationString: string;
@@ -39,12 +40,13 @@ public venueName;
     this.siteId = navParams.get("siteId");
     this.transport_type = navParams.get("transport_type");
     this.venueId = navParams.get("venueId");
-    this.stationType = "";
     this.venueName = navParams.get("venueName");
+    this.icon = navParams.get("icon");
     console.log("transporttype: ", this.transport_type);
 if(this.transport_type==1){this.stationTypeString = "Metro";}
 if(this.transport_type==2){this.stationTypeString = "light_rail_station";}
 if(this.transport_type==3){this.stationTypeString = "Bus";}
+if(this.transport_type==4){this.stationTypeString = "Train";}
     this.getDepartures(this.siteId);
     setInterval(() => {
       console.log('timer');
@@ -120,6 +122,12 @@ alert("There is a problem with loading the departures at this time, please try a
 } else if(this.transport_type == '3') {
   try{
  this.departures = data["ResponseData"].Buses;
+ }catch( err){console.log("errormessage");
+alert("There is a problem with loading the departures at this time, please try again!");
+}
+} else if(this.transport_type == '4') {
+  try{
+ this.departures = data["ResponseData"].Trains;
  }catch( err){console.log("errormessage");
 alert("There is a problem with loading the departures at this time, please try again!");
 }
