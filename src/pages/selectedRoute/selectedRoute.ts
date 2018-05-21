@@ -6,7 +6,7 @@ import { TravelInfo2 } from '../travelInfo2/travelInfo2';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import { Geolocation } from '@ionic-native/geolocation';
-
+declare var google;
 @Component({
   selector: 'page-selectedRoute',
   templateUrl: 'selectedRoute.html'
@@ -94,23 +94,6 @@ export class SelectedRoute {
   getDepartures(siteId:string) {
     console.log("Uppdaterar");
     this.provider.getDepartures(siteId)
-    .subscribe(
-      (data) => {
-
-        if(this.transport_type == '1') {
-          this.departures = data["ResponseData"].Metros;
-        } else if(this.transport_type == '2') {
-          this.departures = data["ResponseData"].Trams;
-        } else if(this.transport_type == '3') {
-          this.departures = data["ResponseData"].Buses;
-        }
-
-      },
-      (error) => {console.log("Error: ", JSON.stringify(error));}
-    )
-  }
-
-this.provider.getDepartures(siteId)
 .subscribe(
  (data) => {
 
