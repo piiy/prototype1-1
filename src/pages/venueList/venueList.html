@@ -26,12 +26,10 @@
     (ionInput)="getVenues($event)">
     </ion-searchbar>
 
-    <ion-list><button (click)="goToPage()" ion-item *ngFor="let venue of venues">
+    <ion-list><button (click)="goToPage(venue.name, venue.id)" ion-item *ngFor="let venue of venues">
       <ion-thumbnail item-start>
-
         <img [src]="venue.img_url">
       </ion-thumbnail>
-    
      {{ venue.name | uppercase }}
     </button></ion-list>
 </ion-content>
