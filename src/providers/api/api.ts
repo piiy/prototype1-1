@@ -31,7 +31,7 @@ params: new HttpParams().set('user_value', str),
 }
 
 getDepartures(siteId:string) {
-  var response = this.http.get("https://api.sl.se/api2/realtimedeparturesV4.json?key=7df6053ebb6048dd8a125ac80c38d1fe&timewindow=15&Ship=false&Train=false&siteId=" + siteId)
+  var response = this.http.get("https://api.sl.se/api2/realtimedeparturesV4.json?key=7df6053ebb6048dd8a125ac80c38d1fe&timewindow=15&Ship=false&siteId=" + siteId)
 
   return response;
 }
