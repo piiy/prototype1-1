@@ -28,13 +28,7 @@ export class SelectedRoute {
   public destinationString: string;
   stationInformation;
   stationTypeString;
-public venueName;
-
-  //ändra till dynamiska destinationer
-  // destination = Venue
-  // MyLocation = Stationsnamn, Transport_type
-  Destination: any = 'Kista';
-  MyLocation: any = 'Sollentuna,Train';
+  public venueName;
 
   constructor(public navCtrl: NavController, public provider: ApiProvider, public popoverCtrl: PopoverController, public navParams: NavParams, public geo: Geolocation, public inAppBrowser: InAppBrowser) {
     this.routeName = navParams.get("routeName");
