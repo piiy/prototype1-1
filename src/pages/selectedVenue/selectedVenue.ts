@@ -21,11 +21,11 @@ export class SelectedVenue {
   this.ionLoadStations(this.venueId);
   }
 
-  openPage(id) {
-
-    const eventUrl = 'https://www.stockholmlive.com/evenemang/alla-evenemang';
+  openBrowserPage(id) {
+        
+    const eventUrl = 'https://www.stockholmlive.com/evenemang/alla-evenemang'; // Byt ut till db_event/event_url
     const restaurantUrl = 'https://www.google.com/maps/search/' + this.venueName + '+Restaurants+Bars';
-    const overviewUrl = 'https://res.cloudinary.com/pvt-group09/image/upload/v1526918964/Globen_arena_view.png';
+    const overviewUrl = 'https://res.cloudinary.com/pvt-group09/image/upload/v1526918964/Globen_arena_view.png'; // Byt ut till db_venue_arenaview_url
 
     const options: InAppBrowserOptions = {
       toolbar: 'yes',
