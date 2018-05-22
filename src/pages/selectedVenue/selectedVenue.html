@@ -15,9 +15,10 @@
 <ion-content padding>
 
 
-  <div text-center><button ion-button color="dark" (click)="openEventPage()">LINK TO EVENT PAGE</button></div>
-  <div text-center><button ion-button color="dark" (click)="openRestaurantPage()">LINK TO RESTAURANTS AND BARS</button></div>
-  <div text-center><button ion-button color="dark" (click)="openOverviewPage()">LINK TO VENUE OVERVIEW</button></div>
+  <div text-center><button ion-button color="dark" (click)="openBrowserPage('eventPage')">LINK TO EVENT PAGE</button></div>
+  <div text-center><button ion-button color="dark" (click)="openBrowserPage('restaurantPage')">LINK TO RESTAURANTS AND BARS</button></div>
+  <div text-center><button ion-button color="dark" (click)="openBrowserPage('overviewPage')">LINK TO VENUE OVERVIEW</button></div>
+  
   <!-- for info about ongoing events, not neccesary for demo
 <ion-grid>
   <ion-row>

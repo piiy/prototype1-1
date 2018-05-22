@@ -21,47 +21,28 @@ export class SelectedVenue {
   this.ionLoadStations(this.venueId);
   }
 
-  openEventPage() {
-
-    // Byt ut till db_event/event_url
-    const url = 'https://www.stockholmlive.com/evenemang/alla-evenemang';
-
-    const options: InAppBrowserOptions = {
-      toolbar: 'yes',
-      footer: 'yes',
-    }
-    
-    const browser = this.inAppBrowser.create(url, '_system', options);
-
-  }
-
-  openRestaurantPage() {
-
-    const url = 'https://www.google.com/maps/search/' + this.venueName + '+Restaurants+Bars'
+  openBrowserPage(id) {
+        
+    const eventUrl = 'https://www.stockholmlive.com/evenemang/alla-evenemang'; // Byt ut till db_event/event_url
+    const restaurantUrl = 'https://www.google.com/maps/search/' + this.venueName + '+Restaurants+Bars';
+    const overviewUrl = 'https://res.cloudinary.com/pvt-group09/image/upload/v1526918964/Globen_arena_view.png'; // Byt ut till db_venue_arenaview_url
 
     const options: InAppBrowserOptions = {
       toolbar: 'yes',
       footer: 'yes',
     }
     
-    const browser = this.inAppBrowser.create(url, '_system', options);
+    if(id == 'eventPage') {
+      this.inAppBrowser.create(eventUrl, '_system', options);
 
-  }
+    } else if(id == 'restaurantPage') {
+      this.inAppBrowser.create(restaurantUrl, '_system', options);
 
-  openOverviewPage() {
-
-    // Byt ut till db_venue_arenaview_url
-    const url = 'https://res.cloudinary.com/pvt-group09/image/upload/v1526918964/Globen_arena_view.png';
-
-    const options: InAppBrowserOptions = {
-      toolbar: 'yes',
-      footer: 'yes',
+    } else if(id == 'overviewPage') {
+      this.inAppBrowser.create(overviewUrl, '_system', options);
     }
-    
-    const browser = this.inAppBrowser.create(url, '_system', options);
 
   }
-
  goToselectedRoute(routeName:string, siteId:string, tType, icon){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
