@@ -6,6 +6,7 @@ import { TravelInfo2 } from '../travelInfo2/travelInfo2';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import { Geolocation } from '@ionic-native/geolocation';
+import { InAppBrowser, InAppBrowserOptions, InAppBrowserObject } from '@ionic-native/in-app-browser';
 declare var google;
 @Component({
   selector: 'page-selectedRoute',
@@ -35,7 +36,7 @@ public venueName;
   Destination: any = 'Kista';
   MyLocation: any = 'Sollentuna,Train';
 
-  constructor(public navCtrl: NavController, public provider: ApiProvider, public popoverCtrl: PopoverController, public navParams: NavParams, public geo: Geolocation) {
+  constructor(public navCtrl: NavController, public provider: ApiProvider, public popoverCtrl: PopoverController, public navParams: NavParams, public geo: Geolocation, public inAppBrowser: InAppBrowser) {
     this.routeName = navParams.get("routeName");
     this.siteId = navParams.get("siteId");
     this.transport_type = navParams.get("transport_type");
@@ -59,6 +60,17 @@ console.log("destinationString: ", this.destinationString);
 
   ionViewDidLoad(){
     this.calculateAndDisplayRoute();
+  }
+
+  openTicketPage() {
+
+    const options: InAppBrowserOptions = {
+      toolbar: 'yes',
+      footer: 'yes',
+    }
+    
+    const browser = this.inAppBrowser.create('https://sl.se/sv/kop-biljett/', '_system', options);
+
   }
 
   calculateAndDisplayRoute() {
