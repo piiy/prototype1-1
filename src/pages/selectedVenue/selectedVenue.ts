@@ -3,7 +3,7 @@ import { NavController, ViewController, PopoverController, NavParams } from 'ion
 import { TravelInfo } from '../travelInfo/travelInfo';
 import { ApiProvider } from '../../providers/api/api';
 import { SelectedRoute } from '../selectedRoute/selectedRoute';
-import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { InAppBrowser, InAppBrowserOptions, InAppBrowserObject } from '@ionic-native/in-app-browser';
 
 
 @Component({
@@ -21,9 +21,45 @@ export class SelectedVenue {
   this.ionLoadStations(this.venueId);
   }
 
-  openInAppBrowser() {
+  openEventPage() {
+
+    // Byt ut till db_event/event_url
+    const url = 'https://www.stockholmlive.com/evenemang/alla-evenemang';
+
+    const options: InAppBrowserOptions = {
+      toolbar: 'yes',
+      footer: 'yes',
+    }
     
-    const browser = this.inAppBrowser.create('https://www.stockholmlive.com/evenemang/alla-evenemang', '_self')
+    const browser = this.inAppBrowser.create(url, '_system', options);
+
+  }
+
+  openRestaurantPage() {
+
+    const url = 'https://www.google.com/maps/search/' + this.venueName + '+Restaurants+Bars'
+
+    const options: InAppBrowserOptions = {
+      toolbar: 'yes',
+      footer: 'yes',
+    }
+    
+    const browser = this.inAppBrowser.create(url, '_system', options);
+
+  }
+
+  openOverviewPage() {
+
+    // Byt ut till db_venue_arenaview_url
+    const url = 'https://res.cloudinary.com/pvt-group09/image/upload/v1526918964/Globen_arena_view.png';
+
+    const options: InAppBrowserOptions = {
+      toolbar: 'yes',
+      footer: 'yes',
+    }
+    
+    const browser = this.inAppBrowser.create(url, '_system', options);
+
   }
 
  goToselectedRoute(routeName:string, siteId:string, tType, icon){
