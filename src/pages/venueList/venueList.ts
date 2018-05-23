@@ -21,11 +21,11 @@ export class VenueList {
   //  this.tabBarElement = document.querySelector('.tabbar');
 
   }
-  goToPage(venueName: string, venue, address){
+  goToPage(venueName: string, venue){
     this.navCtrl.push(SelectedVenue, {
     venueName: venueName,
-    venueId:venue,
-venueAddress: address
+    venueId:venue
+
     })
   }
 
@@ -48,7 +48,7 @@ venueAddress: address
       }, 4000);
     }
 
-
+ 
 
   getVenues(ev) {
     this.venues=this.downloadedVenues;  // Återställer lista till alla arenor
