@@ -43,7 +43,7 @@ export class SelectedVenue {
     }
 
   }
- goToselectedRoute(routeName:string, siteId:string, tType, icon){
+ goToselectedRoute(routeName:string, siteId:string, tType, icon, sType, colors_hex){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
@@ -51,6 +51,9 @@ export class SelectedVenue {
       transport_type: tType,
       venueName: this.venueName,
       icon: icon,
+      venueAddress: this.venueAddress,
+      stationType: sType,
+      colors: colors_hex
     });
   }
 
