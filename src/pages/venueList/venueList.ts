@@ -70,5 +70,4 @@ venueAddress: address
     });            // där man klickar.
   }
 
-
 }
