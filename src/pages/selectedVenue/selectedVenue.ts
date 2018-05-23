@@ -14,15 +14,16 @@ export class SelectedVenue {
   stations;
   public venueName;
   public venueId;
-
+private venueAddress;
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider, public navParams: NavParams, public inAppBrowser: InAppBrowser) {
   this.venueName = navParams.get("venueName");
   this.venueId = navParams.get("venueId");
+  this.venueAddress = navParams.get("venueAddress");
   this.ionLoadStations(this.venueId);
   }
 
   openBrowserPage(id) {
-        
+
     const eventUrl = 'https://www.stockholmlive.com/evenemang/alla-evenemang'; // Byt ut till db_event/event_url
     const restaurantUrl = 'https://www.google.com/maps/search/' + this.venueName + '+Restaurants+Bars';
     const overviewUrl = 'https://res.cloudinary.com/pvt-group09/image/upload/v1526918964/Globen_arena_view.png'; // Byt ut till db_venue_arenaview_url
@@ -31,7 +32,7 @@ export class SelectedVenue {
       toolbar: 'yes',
       footer: 'yes',
     }
-    
+
     if(id == 'eventPage') {
       this.inAppBrowser.create(eventUrl, '_system', options);
 
@@ -43,7 +44,7 @@ export class SelectedVenue {
     }
 
   }
- goToselectedRoute(routeName:string, siteId:string, tType, icon){
+ goToselectedRoute(routeName:string, siteId:string, tType, icon,id, color){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
@@ -51,6 +52,10 @@ export class SelectedVenue {
       transport_type: tType,
       venueName: this.venueName,
       icon: icon,
+      routeId: id,
+      venueAddress: this.venueAddress,
+      color_hex: color
+      
     });
   }
 
@@ -66,6 +71,7 @@ export class SelectedVenue {
     .subscribe(
       (data)=> {
         this.stations=data["results"];
+
       },
       (error)=> {console.log("error: ", JSON.stringify(error));}
     )
