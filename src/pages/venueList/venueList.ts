@@ -21,10 +21,11 @@ export class VenueList {
   //  this.tabBarElement = document.querySelector('.tabbar');
 
   }
-  goToPage(venueName: string, venue){
+  goToPage(venueName: string, venue, address){
     this.navCtrl.push(SelectedVenue, {
     venueName: venueName,
-    venueId:venue
+    venueId:venue,
+    venueAddress: address
 
     })
   }

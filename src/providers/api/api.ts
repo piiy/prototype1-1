@@ -15,10 +15,11 @@ export class ApiProvider {
     console.log('Hello ApiProvider Provider');
   }
   getVenues(str:string) {
-      let headers = new HttpHeaders();
-    let other_headers = headers.append('Authorization', 'Bearer ' + this.jwt.makeToken(str));
-      console.log("headers: ",JSON.stringify(headers));
-    var response = this.http.get("https://pvt.dsv.su.se/Group9/venues");
+    var response = this.http.get("https://pvt.dsv.su.se/Group9/api/v1/venues",{
+  params: new HttpParams().set('user_value', str),
+        headers: new HttpHeaders().set('Authorization', 'Bearer '+this.jwt.makeToken(str))
+      })
+    console.log("resp: ", JSON.stringify(response));
       return response;
 }
 getStations(str:string) {

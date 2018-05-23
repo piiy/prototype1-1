@@ -6,6 +6,7 @@ import { TravelInfo2 } from '../travelInfo2/travelInfo2';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import { Geolocation } from '@ionic-native/geolocation';
+import { InAppBrowser, InAppBrowserOptions, InAppBrowserObject } from '@ionic-native/in-app-browser';
 declare var google;
 @Component({
   selector: 'page-selectedRoute',
@@ -15,7 +16,7 @@ declare var google;
 export class SelectedRoute {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-
+private venueAddress;
   private venueId;
   public transport_type;
   departures;
@@ -27,38 +28,42 @@ export class SelectedRoute {
   public destinationString: string;
   stationInformation;
   stationTypeString;
-public venueName;
-
-  //ändra till dynamiska destinationer
-  // destination = Venue
-  // MyLocation = Stationsnamn, Transport_type
-  Destination: any = 'Kista';
-  MyLocation: any = 'Sollentuna,Train';
-
-  constructor(public navCtrl: NavController, public provider: ApiProvider, public popoverCtrl: PopoverController, public navParams: NavParams, public geo: Geolocation) {
+  public venueName;
+private colors;
+  constructor(public navCtrl: NavController, public provider: ApiProvider, public popoverCtrl: PopoverController, public navParams: NavParams, public geo: Geolocation, public inAppBrowser: InAppBrowser) {
     this.routeName = navParams.get("routeName");
+    this.venueAddress = navParams.get("venueAddress");
     this.siteId = navParams.get("siteId");
     this.transport_type = navParams.get("transport_type");
     this.venueId = navParams.get("venueId");
     this.venueName = navParams.get("venueName");
     this.icon = navParams.get("icon");
-    console.log("transporttype: ", this.transport_type);
-if(this.transport_type==1){this.stationTypeString = "Metro";}
-if(this.transport_type==2){this.stationTypeString = "light_rail_station";}
-if(this.transport_type==3){this.stationTypeString = "Bus";}
-if(this.transport_type==4){this.stationTypeString = "Train";}
+    this.stationTypeString = navParams.get("stationType");
+this.aColor = navParams.get("colors");
+this.bColor=this.aColor;
     this.getDepartures(this.siteId);
     setInterval(() => {
       console.log('timer');
       this.getDepartures(this.siteId);
     },60000);
-    this.getStationInformation(this.venueId);
+  
 this.destinationString = this.routeName+", "+ this.stationTypeString;
 console.log("destinationString: ", this.destinationString);
   }
 
   ionViewDidLoad(){
     this.calculateAndDisplayRoute();
+  }
+
+  openTicketPage() {
+
+    const options: InAppBrowserOptions = {
+      toolbar: 'yes',
+      footer: 'yes',
+    }
+
+    const browser = this.inAppBrowser.create('https://sl.se/sv/kop-biljett/', '_system', options);
+
   }
 
   calculateAndDisplayRoute() {
@@ -89,7 +94,7 @@ console.log("destinationString: ", this.destinationString);
     directionsService.route({
 
       // byt myLocation = Venue;
-      origin: this.venueName,
+      origin: this.venueAddress,
       // byt Destination = "routeName,Transport_type_name";
       destination: this.destinationString,
       travelMode: 'WALKING'
@@ -156,26 +161,7 @@ alert("There is a problem with loading the departures at this time, please try a
     ev: myEvent
   });
 }
-getStationInformation(venue:string) { // Kommer att hÃ¤mta olika stationer frÃ¥n API
-  this.provider.getStations(venue)
-  .subscribe(
-    (data)=> {
-      this.stationInformation=data["results"];
-      this.changeColors();
-    },
-    (error)=> {console.log("error: ", JSON.stringify(error));}
-  )
-}
-changeColors(){
-  var size = Object.keys(this.stationInformation).length;
-  for(let i = 0; i < size; i++){
-    console.log("Transport_type: ", this.stationInformation[i].transport_type);
-    if(this.stationInformation[i].e_name==this.routeName&&this.stationInformation[i].transport_type==this.transport_type){
-      console.log("Ja!");
-      this.aColor = this.stationInformation[i].color_hex;
-      this.bColor = this.stationInformation[i].color_hex;
-    }
-  }
-}
+
+
 
 }
