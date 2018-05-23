@@ -18,7 +18,7 @@ export class ApiProvider {
       let headers = new HttpHeaders();
     let other_headers = headers.append('Authorization', 'Bearer ' + this.jwt.makeToken(str));
       console.log("headers: ",JSON.stringify(headers));
-    var response = this.http.get("https://pvt.dsv.su.se/Group9/venues");
+    var response = this.http.get("https://pvt.dsv.su.se/Group9/api/v1/venues",{headers:other_headers});
       return response;
 }
 getStations(str:string) {
@@ -29,23 +29,19 @@ params: new HttpParams().set('user_value', str),
   console.log("resp: ", JSON.stringify(response));
     return response;
 }
-
-
-
-// Metod för att hämta både avgångar och störningsinfo. (Störningsinfo fanns i Realtidsinfo API:t också nämligen)
+getRoute(str:string) {
+  var response = this.http.get("https://pvt.dsv.su.se/Group9/api/v1/route",{
+params: new HttpParams().set('user_value', str),
+      headers: new HttpHeaders().set('Authorization', 'Bearer '+this.jwt.makeToken(str))
+    })
+  console.log("resp: ", JSON.stringify(response));
+    return response;
+}
 
 getDepartures(siteId:string) {
-  var response = this.http.get("https://api.sl.se/api2/realtimedeparturesV4.json?key=7df6053ebb6048dd8a125ac80c38d1fe&timewindow=15&Ship=false&Train=false&siteId=" + siteId)
+  var response = this.http.get("https://api.sl.se/api2/realtimedeparturesV4.json?key=7df6053ebb6048dd8a125ac80c38d1fe&timewindow=15&Ship=false&siteId=" + siteId)
 
   return response;
 }
-
-  obtainVenues(){
-    return this.http.get('https://my-json-server.typicode.com/piiy/dbtest/posts')
-  }
-
-  obtainStations(){
-    return this.http.get('https://my-json-server.typicode.com/piiy/testdb/posts')
-  }
 
 }

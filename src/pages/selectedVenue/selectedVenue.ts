@@ -3,6 +3,7 @@ import { NavController, ViewController, PopoverController, NavParams } from 'ion
 import { TravelInfo } from '../travelInfo/travelInfo';
 import { ApiProvider } from '../../providers/api/api';
 import { SelectedRoute } from '../selectedRoute/selectedRoute';
+import { InAppBrowser, InAppBrowserOptions, InAppBrowserObject } from '@ionic-native/in-app-browser';
 
 
 @Component({
@@ -13,19 +14,48 @@ export class SelectedVenue {
   stations;
   public venueName;
   public venueId;
-
-  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider, public navParams: NavParams) {
+private venueAddress;
+  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider, public navParams: NavParams, public inAppBrowser: InAppBrowser) {
   this.venueName = navParams.get("venueName");
   this.venueId = navParams.get("venueId");
+  this.venueAddress = navParams.get("venueAddress");
   this.ionLoadStations(this.venueId);
   }
 
- goToselectedRoute(routeName:string, siteId:string, tType ){
+  openBrowserPage(id) {
+
+    const eventUrl = 'https://www.stockholmlive.com/evenemang/alla-evenemang'; // Byt ut till db_event/event_url
+    const restaurantUrl = 'https://www.google.com/maps/search/' + this.venueName + '+Restaurants+Bars';
+    const overviewUrl = 'https://res.cloudinary.com/pvt-group09/image/upload/v1526918964/Globen_arena_view.png'; // Byt ut till db_venue_arenaview_url
+
+    const options: InAppBrowserOptions = {
+      toolbar: 'yes',
+      footer: 'yes',
+    }
+
+    if(id == 'eventPage') {
+      this.inAppBrowser.create(eventUrl, '_system', options);
+
+    } else if(id == 'restaurantPage') {
+      this.inAppBrowser.create(restaurantUrl, '_system', options);
+
+    } else if(id == 'overviewPage') {
+      this.inAppBrowser.create(overviewUrl, '_system', options);
+    }
+
+  }
+ goToselectedRoute(routeName:string, siteId:string, tType, icon,id, color){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
       venueId: this.venueId,
       transport_type: tType,
+      venueName: this.venueName,
+      icon: icon,
+      routeId: id,
+      venueAddress: this.venueAddress,
+      color_hex: color
+      
     });
   }
 
@@ -41,22 +71,11 @@ export class SelectedVenue {
     .subscribe(
       (data)=> {
         this.stations=data["results"];
+
       },
       (error)=> {console.log("error: ", JSON.stringify(error));}
     )
   }
-testLoader(){
-  this.stations = [
-    {name: 'Ericsson Globe', id: 1},
-    {name: 'Hovet', id: 2},
-    {name: 'Annexet', id: 3},
-    {name: 'Tele2 Arena', id: 4},
-    {name: 'Friends Arena', id: 5},
-    {name: 'Stockholms Stadion', id: 6},
-    {name: 'Berns', id: 7},
-    {name: 'Cirkus', id: 8}
-  ];
-}
 }
 interface MyObj {
   name: string
