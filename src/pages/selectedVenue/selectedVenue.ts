@@ -14,10 +14,12 @@ export class SelectedVenue {
   stations;
   public venueName;
   public venueId;
+  private venueAddress;
 
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider, public navParams: NavParams, public inAppBrowser: InAppBrowser) {
   this.venueName = navParams.get("venueName");
   this.venueId = navParams.get("venueId");
+  this.venueAddress = navParams.get("venueAddress");
   this.ionLoadStations(this.venueId);
   }
 
@@ -43,7 +45,7 @@ export class SelectedVenue {
     }
 
   }
- goToselectedRoute(routeName:string, siteId:string, tType, icon){
+ goToselectedRoute(routeName:string, siteId:string, tType, icon, sType, colors_hex){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
@@ -51,6 +53,9 @@ export class SelectedVenue {
       transport_type: tType,
       venueName: this.venueName,
       icon: icon,
+      venueAddress: this.venueAddress,
+      stationType: sType,
+      colors: colors_hex
     });
   }
 
