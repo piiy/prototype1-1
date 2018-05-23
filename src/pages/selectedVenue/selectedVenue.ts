@@ -14,10 +14,12 @@ export class SelectedVenue {
   stations;
   public venueName;
   public venueId;
+  private venueAddress;
 
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public provider: ApiProvider, public navParams: NavParams, public inAppBrowser: InAppBrowser) {
   this.venueName = navParams.get("venueName");
   this.venueId = navParams.get("venueId");
+  this.venueAddress = navParams.get("venueAddress");
   this.ionLoadStations(this.venueId);
   }
 
