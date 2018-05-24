@@ -88,15 +88,26 @@ console.log("VenueUrl: ", this.venueView);
     .subscribe(
       (data)=> {
         let events = data["results"];
-        this.eventUrl = events[0].event_url;
+
         var count = Object.keys(events).length;
         if(count==0){
 console.log("<1");
           this.eventLink="There is no event today at " + this.venueName}
-        else{this.eventLink=events[0].name;
-          let date = new Date(-1800000);
-          this.timeEl = "0" + date.getHours() + " " + date.getMinutes();
+        else{
+this.eventUrl = events[0].event_url;
+          this.eventLink=events[0].name;
+          let date = new Date(events[0].start_time);
+
+          let hours =date.getHours();
+          let minutes = date.getMinutes();
+          
+          if(hours<10){hours="0"+hours;}
+          if(minutes<10){minutes = minutes+"0";}
+this.timeEl=hours+":"+minutes;
+
+
           this.eventLink = "Today the event " + events[0].name + " will be at kl "+this.timeEl+" at "+this.venueName;
+          document.getElementById("myHeader").innerHTML = this.eventLink;
 console.log("timeEl:", this.timeEl);
 console.log("event: ",events[0].name);
       }
