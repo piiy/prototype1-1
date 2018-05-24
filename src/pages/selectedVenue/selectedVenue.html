@@ -5,6 +5,8 @@
         {{ venueName }}
       </ion-title>
 
+
+
       <!-- <ion-buttons end>
           <button (click)="openInfo($event)" ion-button large clear>
             <ion-icon name="ios-information-circle-outline" style="zoom:1.8;">
@@ -13,6 +15,7 @@
         </ion-buttons> -->
     </ion-navbar>
 </ion-header>
+
 <ion-fab edge right>
     <button ion-fab color="buttonColor" mini><ion-icon name="more"></ion-icon></button>
     <ion-fab-list>
@@ -24,15 +27,15 @@
   </ion-fab>
 <ion-content padding>
 
-  <!-- for info about ongoing events, not neccesary for demo
+<div text-center>
 <ion-grid>
   <ion-row>
     <ion-col align-self-center style="border:solid ;">
-      "Information about ongoing event"
+      <h1 id="myHeader">There is no event today at {{venueName}} </h1>
     </ion-col>
   </ion-row>
 </ion-grid>
--->
+</div>
 
 <div style="height:5px;"> </div> <!-- mini spacer -->
     <div class="spacer"></div>
