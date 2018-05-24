@@ -47,7 +47,7 @@ console.log("VenueUrl: ", this.venueView);
     }
 
   }
- goToselectedRoute(routeName:string, siteId:string, tType, icon, sType, colors_hex){
+ goToselectedRoute(routeName:string, siteId:string, tType, icon, sType, colorHex, colorString){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
@@ -57,7 +57,8 @@ console.log("VenueUrl: ", this.venueView);
       icon: icon,
       venueAddress: this.venueAddress,
       stationType: sType,
-      colors: colors_hex
+      color_hex: colorHex,
+      color: colorString
     });
   }
 
