@@ -11,6 +11,9 @@ import { InAppBrowser, InAppBrowserOptions, InAppBrowserObject } from '@ionic-na
   templateUrl: 'selectedVenue.html'
 })
 export class SelectedVenue {
+  eventUrl;
+  timeEl;
+  eventLink;
   stations;
   public venueName;
   public venueId;
@@ -22,12 +25,13 @@ private venueView;
   this.venueAddress = navParams.get("venueAddress");
   this.venueView = navParams.get("venueView");
   this.ionLoadStations(this.venueId);
+  this.loadEvents();
 console.log("VenueUrl: ", this.venueView);
   }
 
   openBrowserPage(id) {
 
-    const eventUrl = 'https://www.stockholmlive.com/evenemang/alla-evenemang'; // Byt ut till db_event/event_url
+    const eventUrl = this.eventUrl; // Byt ut till db_event/event_url
     const restaurantUrl = 'https://www.google.com/maps/search/' + this.venueName + '+Restaurants+Bars';
     const overviewUrl = this.venueView; // Byt ut till db_venue_arenaview_url
 
@@ -77,6 +81,28 @@ console.log("VenueUrl: ", this.venueView);
         console.log("SpecificVenue: ", JSON.stringify(this.stations));
       },
       (error)=> {console.log("error: ", JSON.stringify(error));}
+    )
+  }
+  loadEvents() { // Kommer att hämta olika stationer från API
+    this.provider.getEvents(this.venueId)
+    .subscribe(
+      (data)=> {
+        let events = data["results"];
+        this.eventUrl = events[0].event_url;
+        var count = Object.keys(events).length;
+        if(count==0){
+console.log("<1");
+          this.eventLink="There is no event today at " + this.venueName}
+        else{this.eventLink=events[0].name;
+          let date = new Date(-1800000);
+          this.timeEl = "0" + date.getHours() + " " + date.getMinutes();
+          this.eventLink = "Today the event " + events[0].name + " will be at kl "+this.timeEl+" at "+this.venueName;
+console.log("timeEl:", this.timeEl);
+console.log("event: ",events[0].name);
+      }
+        console.log("EventList: ", JSON.stringify(data));
+      },
+      (error)=> {console.log("eventListError: ", JSON.stringify(error));}
     )
   }
 }
