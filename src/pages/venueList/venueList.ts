@@ -21,6 +21,28 @@ export class VenueList {
   //  this.tabBarElement = document.querySelector('.tabbar');
 
   }
+  isEvent(venueName: string, venue, address, view) {
+      this.provider.getEvents(venue)
+      .subscribe(
+        (data)=> {
+          let events = data["results"];
+  
+          var count = Object.keys(events).length;
+          if(count==0){ 
+            
+            alert("There is no event today at "+ venueName);
+          }
+          
+          else{
+          this.goToPage(venueName, venue, address, view);
+        }
+          console.log("EventList: ", JSON.stringify(data));
+        },
+        (error)=> {console.log("eventListError: ", JSON.stringify(error));}
+      )
+    }
+  
+
   goToPage(venueName: string, venue, address, view){
     this.navCtrl.push(SelectedVenue, {
     venueName: venueName,
