@@ -162,15 +162,4 @@ alert("There is a problem with loading the departures at this time, please try a
       ev: myEvent
     });
   }
-
-
-  openInfo(myEvent) {   // Skapar en PopOver-sida när man trycker på "i"
-  let popover = this.popoverCtrl.create(TravelInfo2);
-  popover.present({
-    ev: myEvent
-  });
-}
-
-
-
 }

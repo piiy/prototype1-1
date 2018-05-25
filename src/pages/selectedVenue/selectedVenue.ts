@@ -55,7 +55,7 @@ console.log("VenueUrl: ", this.venueView);
     }
 
   }
- goToselectedRoute(routeName:string, siteId:string, tType, icon, sType, colorHex, colorString, crowd_indicator, time){
+ goToselectedRoute(routeName:string, siteId:string, tType, icon, sType, colorHex, colorString, crowd_indicator){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
@@ -68,7 +68,6 @@ console.log("VenueUrl: ", this.venueView);
       color_hex: colorHex,
       color: colorString,
       crowdIndicator: crowd_indicator,
-      time: time,
     });
   }
 
@@ -94,12 +93,7 @@ console.log("VenueUrl: ", this.venueView);
     .subscribe(
       (data)=> {
         let events = data["results"];
-
-        var count = Object.keys(events).length;
-        if(count==0){
-        console.log("<1");
-          this.eventLink="There is no event today at " + this.venueName}
-        else{
+        
         this.eventUrl = events[0].event_url;
           this.eventLink=events[0].name;
           let date = new Date(events[0].start_time);
@@ -111,17 +105,33 @@ console.log("VenueUrl: ", this.venueView);
           if(minutes<10){minutes = minutes+"0";}
           this.timeEl=hours+":"+minutes;
 
-
           this.eventLink = "Today the event " + events[0].name + " will be at kl "+this.timeEl+" at "+this.venueName;
           document.getElementById("myHeader").innerHTML = this.eventLink;
           console.log("timeEl:", this.timeEl);
           console.log("event: ",events[0].name);
-      }
         console.log("EventList: ", JSON.stringify(data));
       },
       (error)=> {console.log("eventListError: ", JSON.stringify(error));}
     )
   }
+
+  calculateRouteTime(time, crowd_indicator){
+    let newTime = parseInt(time);
+    let xFactor;
+    if(crowd_indicator == 'https://res.cloudinary.com/pvt-group09/image/upload/v1525786167/sensor-green.png' ) {
+      xFactor = 1;
+    } else if(crowd_indicator == 'https://res.cloudinary.com/pvt-group09/image/upload/v1527068926/sensor-yellow.png'){ 
+      xFactor = 2;
+    } else{ 
+      xFactor = 3;
+    }
+    let result = newTime * xFactor;
+    console.log("Route time calculated:" + result);
+    return result;
+  }
+
+
+
 }
 interface MyObj {
   name: string
