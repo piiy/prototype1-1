@@ -18,15 +18,14 @@
   </ion-fab>
 <ion-content padding>
 
-<div text-center>
-<ion-grid>
-  <ion-row>
-    <ion-col align-self-center style="border:solid;">
-      <h1 id="myHeader"></h1>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-</div>
+
+<ion-card>
+  <ion-card-header text-center>
+    <h2><b>Today at {{ venueName }}</b></h2>
+  </ion-card-header>
+  <p text-center> <ion-icon name='calendar' style="font-size: 16px" style="margin-right: 3px"> </ion-icon> {{ eventName }}</p>
+  <p text-center style="margin-top: 5px"> <ion-icon name='time' style="font-size: 16px" style="margin-right: 3px"> </ion-icon>  {{ eventTime }} </p>
+</ion-card>
 
 <div style="height:5px;"> </div> <!-- mini spacer -->
     <div class="spacer"></div>
