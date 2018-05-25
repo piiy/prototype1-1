@@ -3,6 +3,7 @@ import { PopoverController, ViewController, NavController } from 'ionic-angular'
 import { VenueInfo } from '../venueInfo/venueInfo';
 import { SelectedVenue} from '../selectedVenue/selectedVenue';
 import { ApiProvider } from '../../providers/api/api';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'venueList.html'
@@ -15,7 +16,7 @@ export class VenueList {
 
   //tabBarElement: any;
 
-  constructor(public popoverCtrl: PopoverController, public navCtrl: NavController, public provider: ApiProvider ) {
+  constructor(public popoverCtrl: PopoverController, public navCtrl: NavController, public provider: ApiProvider, public alertCtrl: AlertController) {
     /*this.initializeVenues();*/
     this.ionLoadVenues();
   //  this.tabBarElement = document.querySelector('.tabbar');
@@ -29,8 +30,13 @@ export class VenueList {
   
           var count = Object.keys(events).length;
           if(count==0){ 
-            
-            alert("There is no event today at "+ venueName);
+
+            let alert = this.alertCtrl.create({
+              title: "Evide",
+              subTitle: "There is no event at " + venueName + " today!",
+              buttons: ["OK"],
+            });
+            alert.present();
           }
           
           else{

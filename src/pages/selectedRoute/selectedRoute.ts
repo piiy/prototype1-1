@@ -146,13 +146,25 @@ alert("There is a problem with loading the departures at this time, please try a
 alert("There is a problem with loading the departures at this time, please try again!");
 }
 }
-
-
  },
  (error) => {console.log("Error: ", JSON.stringify(error));}
 )
 
  }
+
+   calculateRouteTime(time, crowd_indicator){
+    let newTime = parseInt(time);
+    let xFactor;
+    if(crowd_indicator == 'https://res.cloudinary.com/pvt-group09/image/upload/v1525786167/sensor-green.png' ) {
+      xFactor = 1;
+    } else if(crowd_indicator == 'https://res.cloudinary.com/pvt-group09/image/upload/v1527068926/sensor-yellow.png'){ 
+      xFactor = 2;
+    } else{ 
+      xFactor = 3;
+    }
+    let result = newTime * xFactor;
+    return result;
+  }
 
 
   openDisturbanceInfo(myEvent) { // Skapar popup-sida med störningsinfo.

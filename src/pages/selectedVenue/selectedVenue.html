@@ -24,14 +24,14 @@
     <h2><b>Today at {{ venueName }}</b></h2>
   </ion-card-header>
   <p text-center> <ion-icon name='calendar' style="font-size: 16px" style="margin-right: 3px"> </ion-icon> {{ eventName }}</p>
-  <p text-center style="margin-top: 5px"> <ion-icon name='time' style="font-size: 16px" style="margin-right: 3px"> </ion-icon>  {{ eventTime }} </p>
+  <p text-center style="margin-top: 5px" style="margin-bottom: 10px"> <ion-icon name='time' style="font-size: 16px" style="margin-right: 3px"> </ion-icon>  {{ eventTime }} </p>
 </ion-card>
 
 <div style="height:5px;"> </div> <!-- mini spacer -->
     <div class="spacer"></div>
 
 <!-- Lista av stationer -->
-    <ion-list><button class="stations" style="margin-bottom: 20px" (click)="goToselectedRoute(station.e_name, station.SL_SITE_ID, station.transport_type, station.icon, station.t_name, station.color_hex, station.color, station.crowd_indicator)" ion-item class="stations" *ngFor="let station of stations">
+    <ion-list><button class="stations" style="margin-bottom: 20px" (click)="goToselectedRoute(station.e_name, station.SL_SITE_ID, station.transport_type, station.icon, station.t_name, station.color_hex, station.color, station.crowd_indicator, station.time)" ion-item class="stations" *ngFor="let station of stations">
       <ion-grid>
         <ion-row>
           <ion-col align-self-stretch align-self-center style="max-width:10px; background-color:#ff0000;" [style.background-color]="station.color_hex" >    </ion-col><!-- Byt till färg för lamporna, från API/db.-->
