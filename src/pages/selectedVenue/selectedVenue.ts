@@ -5,7 +5,6 @@ import { ApiProvider } from '../../providers/api/api';
 import { SelectedRoute } from '../selectedRoute/selectedRoute';
 import { InAppBrowser, InAppBrowserOptions, InAppBrowserObject } from '@ionic-native/in-app-browser';
 
-
 @Component({
   selector: 'page-selectedVenue',
   templateUrl: 'selectedVenue.html'
@@ -55,7 +54,7 @@ console.log("VenueUrl: ", this.venueView);
     }
 
   }
- goToselectedRoute(routeName:string, siteId:string, tType, icon, sType, colorHex, colorString, crowd_indicator){
+ goToselectedRoute(routeName:string, siteId:string, tType, icon, sType, colorHex, colorString, crowd_indicator, time){
     this.navCtrl.push(SelectedRoute, {
       routeName: routeName,
       siteId: siteId,
@@ -68,6 +67,7 @@ console.log("VenueUrl: ", this.venueView);
       color_hex: colorHex,
       color: colorString,
       crowdIndicator: crowd_indicator,
+      time: time,
     });
   }
 
@@ -122,8 +122,6 @@ console.log("VenueUrl: ", this.venueView);
     let result = newTime * xFactor;
     return result;
   }
-
-
 
 }
 interface MyObj {
