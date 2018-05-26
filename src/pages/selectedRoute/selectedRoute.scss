@@ -5,12 +5,19 @@ page-selectedRoute {
         height: 50%;
       }
 
-.title {
+.titles {
   align-items: center;
   align-content: center;
   text-align: center;
   font-size: 30px;
   color:black;
+  margin-left: -24px;
+}
+
+.title {
+
+margin-right: 45px;
+
 }
 .box {
   align-items: center;
