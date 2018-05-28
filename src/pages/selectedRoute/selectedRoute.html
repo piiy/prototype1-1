@@ -1,46 +1,46 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-    <!-- load selected station name -->
-    {{ routeName }}
+    <ion-title text-center>
+  <h2> {{ routeName }} </h2>
   </ion-title>
-  
   </ion-navbar>
-
 </ion-header>
 
-<ion-content padding class ="bg" [style.background-color]="white"> <!--byta ut till fÃ¤rg pÃ¥ lamporna fÃ¶r den stationen-->
-<ion-item no-lines text-center class="title" color="white"><!--byta ut till fÃ¤rg pÃ¥ lamporna fÃ¶r den stationen-->
-  <ion-avatar item-left>
+<ion-content padding class ="bg"> 
+<ion-item no-lines text-center class="titles" color="white">
+  <ion-avatar item-left style="margin-left: 15px">
 <img class="icon" img [src]="icon"/>
 </ion-avatar>
-  {{ routeName }}
+ <div style="margin-left: -15px"> {{ routeName }} </div>
 </ion-item>
+  
+  <p text-center><b style="margin-right: 6px">Crowd on route: </b> <img style="margin-right: 20px" style="margin-bottom: -6px" width="30px" height="22px" [src]="crowdIndicator"/>
+  <p text-center><b>Estimated time: {{calculateRouteTime(time, crowdIndicator)}} min</b></p>
+  <div text-center>
+      <ion-item no-lines class="lightButton">
+       <ion-icon name='sunny' outline is-active="false" [style.color]="aColor"></ion-icon>
+       Follow the {{color}} lights!
+      </ion-item>
+     </div>
+    
 
- <div text-center>
-   <button class="lightButton" ion-button round icon-start>
-    <ion-icon name='sunny' outline is-active="false" [style.color]="aColor"></ion-icon>
-    follow the {{color}} light
-  </button>
-  </div>
 
 
 <!-- GoogleMaps karta -->
-<div #map id="map"></div>
+<div #map id="map" padding class="bg"></div>
 <!-- Knapp som öppnar popup med aktuella störningar för station/linje -->
-<div text-center>
-<button (click)="openDisturbanceInfo($event, siteId)" class="button" text-center ion-button color="yellow" round icon-start>
-    <ion-icon name='alert' is-active="false" ></ion-icon>
-  Disturbances
-  </button>
-
-  <button (click)="openTicketPage()"class="button" text-center ion-button color="light" round icon-start>
-      Buy SL ticket
-    </button>
-</div>
+<ion-item no-lines text-center>
+    <button (click)="openDisturbanceInfo($event, siteId)" class="button" text-center ion-button color="yellow" round icon-start>
+        <ion-icon name='alert' is-active="false" ></ion-icon>
+      Disturbances
+      </button>
+      <button (click)="openTicketPage()"class="button" text-center ion-button color="light" round icon-start>
+          Buy SL ticket
+        </button>
+</ion-item>
 
 <div *ngFor="let departure of departures; let i=index">
- <ion-item no-lines *ngIf="i<3" [style.background-color]="white"> <!--byta ut till färg på lamporna för den stationen-->
+ <ion-item no-lines *ngIf="i<3"> <!--byta ut till färg på lamporna för den stationen-->
    <ion-grid class="timeTable">
        <ion-row>
        <ion-col>
@@ -50,7 +50,4 @@
    </ion-grid>
    </ion-item>
    </div>
-
-  <ion-item no-lines text-center padding [style.background-color]="white">
-</ion-item>
 </ion-content>

@@ -2,7 +2,6 @@ import { Component,ViewChild,ElementRef } from '@angular/core';
 import { NavController, PopoverController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import {DisturbanceInfo} from '../disturbanceInfo/disturbanceInfo';
-import { TravelInfo2 } from '../travelInfo2/travelInfo2';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -24,6 +23,8 @@ private venueAddress;
   public routeName;
   public siteId;
   public icon;
+  public time;
+  public crowdIndicator;
   public aColor: string;
   public bColor: string;
   public destinationString: string;
@@ -40,6 +41,8 @@ private color_hex;
     this.venueName = navParams.get("venueName");
     this.icon = navParams.get("icon");
     this.stationTypeString = navParams.get("stationType");
+    this.time = navParams.get("time");
+    this.crowdIndicator = navParams.get("crowdIndicator");
 this.aColor = navParams.get("color_hex");
 this.bColor=this.aColor;
 this.color = navParams.get("color");
@@ -143,13 +146,25 @@ alert("There is a problem with loading the departures at this time, please try a
 alert("There is a problem with loading the departures at this time, please try again!");
 }
 }
-
-
  },
  (error) => {console.log("Error: ", JSON.stringify(error));}
 )
 
  }
+
+   calculateRouteTime(time, crowd_indicator){
+    let newTime = parseInt(time);
+    let xFactor;
+    if(crowd_indicator == 'https://res.cloudinary.com/pvt-group09/image/upload/v1525786167/sensor-green.png' ) {
+      xFactor = 1;
+    } else if(crowd_indicator == 'https://res.cloudinary.com/pvt-group09/image/upload/v1527068926/sensor-yellow.png'){ 
+      xFactor = 2;
+    } else{ 
+      xFactor = 3;
+    }
+    let result = newTime * xFactor;
+    return result;
+  }
 
 
   openDisturbanceInfo(myEvent) { // Skapar popup-sida med störningsinfo.
@@ -159,15 +174,4 @@ alert("There is a problem with loading the departures at this time, please try a
       ev: myEvent
     });
   }
-
-
-  openInfo(myEvent) {   // Skapar en PopOver-sida när man trycker på "i"
-  let popover = this.popoverCtrl.create(TravelInfo2);
-  popover.present({
-    ev: myEvent
-  });
-}
-
-
-
 }
